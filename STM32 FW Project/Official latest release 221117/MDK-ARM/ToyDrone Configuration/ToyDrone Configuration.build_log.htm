@@ -1,0 +1,279 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: É Vision V5.26.2.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Kouichi Nakajima, V, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.26.2.0
+Toolchain Path:  D:\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.26.2.0
+Dialog DLL:      DCM.DLL V1.17.2.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.5.0
+Dialog DLL:      TCM.DLL V1.36.1.0
+ 
+<h2>Project:</h2>
+D:\share\src\ST_Drone_FCU_F401\STM32 FW Project\Official latest release 221117\MDK-ARM\Project.uvprojx
+Project File Date:  12/21/2018
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\ARM\ARMCC\Bin'
+Rebuild target 'ToyDrone Configuration'
+compiling stm32f4xx_hal_rcc_ex.c...
+compiling stm32f4xx_hal_adc.c...
+compiling stm32f4xx_hal_pcd_ex.c...
+compiling stm32f4xx_hal_dma.c...
+compiling stm32f4xx_hal_pcd.c...
+compiling stm32f4xx_ll_usb.c...
+compiling stm32f4xx_hal_rcc.c...
+compiling stm32f4xx_hal.c...
+compiling stm32f4xx_hal_cortex.c...
+compiling stm32f4xx_hal_tim_ex.c...
+compiling stm32f4xx_hal_gpio.c...
+compiling stm32f4xx_hal_flash_ramfunc.c...
+compiling stm32f4xx_hal_pwr.c...
+compiling stm32f4xx_hal_tim.c...
+compiling stm32f4xx_hal_pwr_ex.c...
+compiling stm32f4xx_hal_flash.c...
+compiling stm32f4xx_hal_adc_ex.c...
+compiling stm32f4xx_hal_dma_ex.c...
+compiling stm32f4xx_hal_spi.c...
+compiling stm32f4xx_hal_flash_ex.c...
+compiling stm32f4xx_hal_uart.c...
+compiling usbd_desc.c...
+compiling system_stm32f4xx.c...
+compiling usbd_conf.c...
+compiling stm32f4xx_hal_msp.c...
+compiling timer.c...
+../Inc/timer.h(25): warning:  #1-D: last line of file ends without a newline
+  #endif /* __TIMER_H__ */
+../Src/timer.c(49): warning:  #1-D: last line of file ends without a newline
+  }
+../Src/timer.c: 2 warnings, 0 errors
+compiling rc.c...
+../Inc/config_drone.h(32): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CONFIG_DRONE_H_ */
+../Inc/timer.h(25): warning:  #1-D: last line of file ends without a newline
+  #endif /* __TIMER_H__ */
+../Inc/basic_math.h(10): warning:  #1-D: last line of file ends without a newline
+  #endif /* __BASIC_MATH_H_ */
+../Inc/quaternion.h(29): warning:  #1-D: last line of file ends without a newline
+  #endif /* _QUATERNION_H_ */
+../Inc/rc.h(83): warning:  #1-D: last line of file ends without a newline
+  #endif /* _RC_H_ */
+../Src/rc.c: 5 warnings, 0 errors
+compiling basic_math.c...
+../Inc/basic_math.h(10): warning:  #1-D: last line of file ends without a newline
+  #endif /* __BASIC_MATH_H_ */
+../Src/basic_math.c(37): warning:  #1-D: last line of file ends without a newline
+  }
+../Src/basic_math.c: 2 warnings, 0 errors
+compiling flight_control.c...
+../Inc/basic_math.h(10): warning:  #1-D: last line of file ends without a newline
+  #endif /* __BASIC_MATH_H_ */
+../Inc/quaternion.h(29): warning:  #1-D: last line of file ends without a newline
+  #endif /* _QUATERNION_H_ */
+../Inc/motor.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif /* _MOTOR_H_ */
+../Inc/flight_control.h(117): warning:  #1-D: last line of file ends without a newline
+  #endif
+../Inc/config_drone.h(32): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CONFIG_DRONE_H_ */
+../Inc/timer.h(25): warning:  #1-D: last line of file ends without a newline
+  #endif /* __TIMER_H__ */
+../Inc/rc.h(83): warning:  #1-D: last line of file ends without a newline
+  #endif /* _RC_H_ */
+../Src/flight_control.c: 7 warnings, 0 errors
+compiling usb_device.c...
+compiling quaternion.c...
+../Inc/basic_math.h(10): warning:  #1-D: last line of file ends without a newline
+  #endif /* __BASIC_MATH_H_ */
+../Inc/quaternion.h(29): warning:  #1-D: last line of file ends without a newline
+  #endif /* _QUATERNION_H_ */
+../Src/quaternion.c(116): warning:  #1-D: last line of file ends without a newline
+  }
+../Src/quaternion.c(82): warning:  #550-D: variable "dq1q2"  was set but never used
+      float dq1q3, dq0q2, dq1q2;
+../Src/quaternion.c(83): warning:  #550-D: variable "dq0q3"  was set but never used
+      float dq0q1, dq2q3, dq0q3;
+../Src/quaternion.c: 5 warnings, 0 errors
+compiling stm32f4xx_it.c...
+compiling sensor_data.c...
+../Inc/config_drone.h(32): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CONFIG_DRONE_H_ */
+../Inc/sensor_data.h(15): warning:  #1-D: last line of file ends without a newline
+  #endif /* _SENSOR_DATA_H_ */
+../Src/sensor_data.c(71): warning:  #223-D: function "BSP_ACCELERO_Get_Axes" declared implicitly
+      BSP_ACCELERO_Get_Axes(ACC_handle, &acc_temp_int16);
+../Src/sensor_data.c(76): warning:  #223-D: function "BSP_GYRO_Get_Axes" declared implicitly
+      BSP_GYRO_Get_Axes(GYR_handle, &gyro_temp_int16);
+../Src/sensor_data.c(82): warning:  #223-D: function "BSP_MAGNETO_Get_Axes" declared implicitly
+          BSP_MAGNETO_Get_Axes(MAG_handle, &mag_temp_int16);
+../Src/sensor_data.c(95): warning:  #223-D: function "BSP_PRESSURE_Get_Press" declared implicitly
+          BSP_PRESSURE_Get_Press(PRE_handle, &pre);
+../Src/sensor_data.c(149): warning:  #1-D: last line of file ends without a newline
+                         
+../Src/sensor_data.c: 7 warnings, 0 errors
+compiling debug.c...
+../Src/debug.c(30): warning:  #1-D: last line of file ends without a newline
+  #endif
+../Src/debug.c: 1 warning, 0 errors
+assembling startup_stm32f401xc.s...
+compiling ahrs.c...
+../Inc/basic_math.h(10): warning:  #1-D: last line of file ends without a newline
+  #endif /* __BASIC_MATH_H_ */
+../Inc/quaternion.h(29): warning:  #1-D: last line of file ends without a newline
+  #endif /* _QUATERNION_H_ */
+../Inc/motor.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif /* _MOTOR_H_ */
+../Inc/flight_control.h(117): warning:  #1-D: last line of file ends without a newline
+  #endif
+../Src/ahrs.c(49): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+    gxf = gyro->AXIS_X * COE_MDPS_TO_RADPS;
+../Src/ahrs.c(50): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+    gyf = gyro->AXIS_Y * COE_MDPS_TO_RADPS;
+../Src/ahrs.c(51): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+    gzf = gyro->AXIS_Z * COE_MDPS_TO_RADPS;
+../Src/ahrs.c(82): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+    exInt = exInt + ex*AHRS_KI*SENSOR_SAMPLING_TIME;
+../Src/ahrs.c(83): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+    eyInt = eyInt + ey*AHRS_KI*SENSOR_SAMPLING_TIME;
+../Src/ahrs.c(84): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+    ezInt = ezInt + ez*AHRS_KI*SENSOR_SAMPLING_TIME;
+../Src/ahrs.c(110): warning:  #1-D: last line of file ends without a newline
+  }
+../Src/ahrs.c(31): warning:  #550-D: variable "q0q3"  was set but never used
+    float q0q0, q0q1, q0q2, q0q3, q1q1, q1q2, q1q3, q2q2, q2q3, q3q3;
+../Src/ahrs.c(31): warning:  #550-D: variable "q1q2"  was set but never used
+    float q0q0, q0q1, q0q2, q0q3, q1q1, q1q2, q1q3, q2q2, q2q3, q3q3;
+../Src/ahrs.c: 13 warnings, 0 errors
+compiling main.c...
+../Inc/config_drone.h(32): warning:  #1-D: last line of file ends without a newline
+  #endif /* __CONFIG_DRONE_H_ */
+../Inc/timer.h(25): warning:  #1-D: last line of file ends without a newline
+  #endif /* __TIMER_H__ */
+../Inc/basic_math.h(10): warning:  #1-D: last line of file ends without a newline
+  #endif /* __BASIC_MATH_H_ */
+../Inc/quaternion.h(29): warning:  #1-D: last line of file ends without a newline
+  #endif /* _QUATERNION_H_ */
+../Inc/rc.h(83): warning:  #1-D: last line of file ends without a newline
+  #endif /* _RC_H_ */
+../Inc/sensor_data.h(15): warning:  #1-D: last line of file ends without a newline
+  #endif /* _SENSOR_DATA_H_ */
+../Inc/motor.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif /* _MOTOR_H_ */
+../Inc/flight_control.h(117): warning:  #1-D: last line of file ends without a newline
+  #endif
+../Src/main.c(432): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      PRINTF("%d\t%d\t%d\t%d\t%f\t%f\t%f\t%f\t%f\n", gELE, gAIL, gRUD, gTHR, motor_pwm.motor1_pwm, euler_ahrs.thx * 57.3, euler_ahrs.thy * 57.3, euler_rc.thx * 57.3, euler_rc.thy * 57.3);
+../Src/main.c(432): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      PRINTF("%d\t%d\t%d\t%d\t%f\t%f\t%f\t%f\t%f\n", gELE, gAIL, gRUD, gTHR, motor_pwm.motor1_pwm, euler_ahrs.thx * 57.3, euler_ahrs.thy * 57.3, euler_rc.thx * 57.3, euler_rc.thy * 57.3);
+../Src/main.c(432): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      PRINTF("%d\t%d\t%d\t%d\t%f\t%f\t%f\t%f\t%f\n", gELE, gAIL, gRUD, gTHR, motor_pwm.motor1_pwm, euler_ahrs.thx * 57.3, euler_ahrs.thy * 57.3, euler_rc.thx * 57.3, euler_rc.thy * 57.3);
+../Src/main.c(432): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+      PRINTF("%d\t%d\t%d\t%d\t%f\t%f\t%f\t%f\t%f\n", gELE, gAIL, gRUD, gTHR, motor_pwm.motor1_pwm, euler_ahrs.thx * 57.3, euler_ahrs.thy * 57.3, euler_rc.thx * 57.3, euler_rc.thy * 57.3);
+../Src/main.c(873): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+        gyro_rad.gx = gyro_fil.AXIS_X*COE_MDPS_TO_RADPS;
+../Src/main.c(874): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+        gyro_rad.gy = gyro_fil.AXIS_Y*COE_MDPS_TO_RADPS;
+../Src/main.c(875): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+        gyro_rad.gz = gyro_fil.AXIS_Z*COE_MDPS_TO_RADPS;
+../Src/main.c(877): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+        euler_ahrs.thz += gyro_rad.gz*PID_SAMPLING_TIME;
+../Src/main.c(541): warning:  #177-D: function "MX_SPI1_Init"  was declared but never referenced
+  void MX_SPI1_Init(void)
+../Src/main.c(561): warning:  #177-D: function "MX_SPI2_Init"  was declared but never referenced
+  void MX_SPI2_Init(void)
+../Src/main.c: 18 warnings, 0 errors
+compiling motor.c...
+../Inc/motor.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif /* _MOTOR_H_ */
+../Src/motor.c(19): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+    if (motor_pwm->motor1_pwm >= MOTOR_MAX_PWM_VALUE)
+../Src/motor.c(21): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+    else if (motor_pwm->motor1_pwm <= MOTOR_MIN_PWM_VALUE)
+../Src/motor.c(26): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+    if (motor_pwm->motor2_pwm >= MOTOR_MAX_PWM_VALUE)
+../Src/motor.c(28): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+    else if (motor_pwm->motor2_pwm <= MOTOR_MIN_PWM_VALUE)
+../Src/motor.c(33): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+    if (motor_pwm->motor3_pwm >= MOTOR_MAX_PWM_VALUE)
+../Src/motor.c(35): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+    else if (motor_pwm->motor3_pwm <= MOTOR_MIN_PWM_VALUE)
+../Src/motor.c(40): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+    if (motor_pwm->motor4_pwm >= MOTOR_MAX_PWM_VALUE)
+../Src/motor.c(42): warning:  #1035-D: single-precision operand implicitly converted to double-precision
+    else if (motor_pwm->motor4_pwm <= MOTOR_MIN_PWM_VALUE)
+../Src/motor.c: 9 warnings, 0 errors
+compiling usbd_cdc_if.c...
+compiling steval_fcu001_v1_magneto.c...
+compiling steval_fcu001_v1.c...
+../Drivers/BSP/STEVAL_FCU001_V1/steval_fcu001_v1.c(349): warning:  #111-D: statement is unreachable
+    return COMPONENT_ERROR;
+../Drivers/BSP/STEVAL_FCU001_V1/steval_fcu001_v1.c: 1 warning, 0 errors
+compiling steval_fcu001_v1_gyro.c...
+compiling LSM6DSL_ACC_GYRO_driver_HL.c...
+compiling steval_fcu001_v1_pressure.c...
+compiling LIS2MDL_MAG_driver_HL.c...
+compiling LIS2MDL_MAG_driver.c...
+compiling steval_fcu001_v1_accelero.c...
+../Drivers/BSP/STEVAL_FCU001_V1/steval_fcu001_v1_accelero.c(202): warning:  #223-D: function "LSM6DSL_Sensor_IO_ITConfig" declared implicitly
+    LSM6DSL_Sensor_IO_ITConfig();
+../Drivers/BSP/STEVAL_FCU001_V1/steval_fcu001_v1_accelero.c(218): warning:  #223-D: function "Sensor_IO_Init" declared implicitly
+    if ( Sensor_IO_Init() == COMPONENT_ERROR )
+../Drivers/BSP/STEVAL_FCU001_V1/steval_fcu001_v1_accelero.c: 2 warnings, 0 errors
+compiling LSM303AGR_MAG_driver.c...
+compiling LIS3MDL_MAG_driver_HL.c...
+compiling LPS22HB_Driver_HL.c...
+compiling LPS22HB_Driver.c...
+../Drivers/BSP/Components/lps22hb/LPS22HB_Driver.c(104): warning:  #111-D: statement is unreachable
+    if ( Sensor_IO_Read( handle, RegAddr, Data, NumByteToRead ) )
+../Drivers/BSP/Components/lps22hb/LPS22HB_Driver.c: 1 warning, 0 errors
+compiling usbd_core.c...
+compiling LSM303AGR_ACC_driver_HL.c...
+compiling usbd_ioreq.c...
+compiling usbd_ctlreq.c...
+compiling LSM303AGR_MAG_driver_HL.c...
+compiling usbd_cdc.c...
+compiling LSM303AGR_ACC_driver.c...
+compiling LIS3MDL_MAG_driver.c...
+compiling LSM6DSL_ACC_GYRO_driver.c...
+linking...
+ToyDrone Configuration\ToyDrone Configuration.axf: error: L6050U: The code size of this image (61056 bytes) exceeds the maximum allowed for this version of the linker.
+Finished: 0 information, 0 warning, 0 error and 1 fatal error messages.
+"ToyDrone Configuration\ToyDrone Configuration.axf" - 1 Error(s), 73 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.4.0.pack
+                ARM.CMSIS.5.4.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.1.2
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.13.0.pack
+                Keil.STM32F4xx_DFP.2.13.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_ToyDrone_Configuration
+  D:\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include
+  D:\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.1.2
+Target not created.
+Build Time Elapsed:  00:00:17
+</pre>
+</body>
+</html>
