@@ -1,0 +1,1046 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>STmicroCopter_20181010: rc.c ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">STmicroCopter_20181010
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('rc_8c.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#define-members">マクロ定義</a> &#124;
+<a href="#func-members">関数</a> &#124;
+<a href="#var-members">変数</a>  </div>
+  <div class="headertitle">
+<div class="title">rc.c ファイル</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;rc.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+rc.c の依存先関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="rc_8c__incl.png" border="0" usemap="#rc_8c" alt=""/></div>
+<map name="rc_8c" id="rc_8c">
+</map>
+</div>
+</div>
+<p><a href="rc_8c_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+マクロ定義</h2></td></tr>
+<tr class="memitem:acac68ca9f3985c9ccc15019c405cdb75"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#acac68ca9f3985c9ccc15019c405cdb75">AUTO_CONNECTION_CENTER</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:acac68ca9f3985c9ccc15019c405cdb75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:a0339133286d91ab0e815a96a8ab66a31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a0339133286d91ab0e815a96a8ab66a31">init_rc_variables</a> (void)</td></tr>
+<tr class="separator:a0339133286d91ab0e815a96a8ab66a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56d6d7d99f55b37375234a664e127fa7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a56d6d7d99f55b37375234a664e127fa7">init_remote_control</a> (void)</td></tr>
+<tr class="separator:a56d6d7d99f55b37375234a664e127fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77a2401a35ddd9bd0b8fc28331b81381"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a77a2401a35ddd9bd0b8fc28331b81381">HAL_TIM_IC_CaptureCallback</a> (TIM_HandleTypeDef *htim)</td></tr>
+<tr class="separator:a77a2401a35ddd9bd0b8fc28331b81381"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5033855e81ba2071231b60599a3ce9a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a5033855e81ba2071231b60599a3ce9a1">HAL_SYSTICK_Callback</a> (void)</td></tr>
+<tr class="separator:a5033855e81ba2071231b60599a3ce9a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a792ab62950fad7697ab5650e7345a6b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a792ab62950fad7697ab5650e7345a6b8">update_rc_data</a> (int32_t idx)</td></tr>
+<tr class="separator:a792ab62950fad7697ab5650e7345a6b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b44b8f661cbff6ee4d065f4fa8aea66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a6b44b8f661cbff6ee4d065f4fa8aea66">GetTargetEulerAngle</a> (EulerAngleTypeDef *<a class="el" href="main__davide__debug_8c.html#a9ce1ff660374d487324a8e956f33db46">euler_rc</a>, EulerAngleTypeDef *<a class="el" href="main__davide__debug_8c.html#ae298a2716592e95ef6adb1bf10a75bcc">euler_ahrs</a>)</td></tr>
+<tr class="separator:a6b44b8f661cbff6ee4d065f4fa8aea66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1cf0a50b9ef73e5245bc66fe6371501"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#ab1cf0a50b9ef73e5245bc66fe6371501">init_queue</a> (Queue_TypeDef *q)</td></tr>
+<tr class="separator:ab1cf0a50b9ef73e5245bc66fe6371501"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5edb09351a82612f03e43eeb489fd2eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a5edb09351a82612f03e43eeb489fd2eb">add_queue</a> (Queue_TypeDef *q, int16_t idx, int16_t value)</td></tr>
+<tr class="separator:a5edb09351a82612f03e43eeb489fd2eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1cbe54d2a51b0b892f71608ba9284ca"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#aa1cbe54d2a51b0b892f71608ba9284ca">get_queue</a> (Queue_TypeDef *q, int16_t *idx, int16_t *value)</td></tr>
+<tr class="separator:aa1cbe54d2a51b0b892f71608ba9284ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+変数</h2></td></tr>
+<tr class="memitem:ab83673072b1f49cb25295966eb15e0fb"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#ab83673072b1f49cb25295966eb15e0fb">max_pitch_rad</a> = PI*PITCH_MAX_DEG/180.0</td></tr>
+<tr class="separator:ab83673072b1f49cb25295966eb15e0fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73dd20c732820271fac2d5f8d1f148e3"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a73dd20c732820271fac2d5f8d1f148e3">max_roll_rad</a> = PI*ROLL_MAX_DEG/180.0</td></tr>
+<tr class="separator:a73dd20c732820271fac2d5f8d1f148e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a644503fb979ac6cfd60fbd0bb32c62"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a7a644503fb979ac6cfd60fbd0bb32c62">max_yaw_rad</a> = PI*YAW_MAX_DEG/180.0</td></tr>
+<tr class="separator:a7a644503fb979ac6cfd60fbd0bb32c62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24974b410f39e0c994c4ba643830e054"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a24974b410f39e0c994c4ba643830e054">t1</a></td></tr>
+<tr class="separator:a24974b410f39e0c994c4ba643830e054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3df962c6aa1ecb12fe8aee3fd7d98ba"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#ad3df962c6aa1ecb12fe8aee3fd7d98ba">ail_center</a> = AIL_MIDDLE</td></tr>
+<tr class="separator:ad3df962c6aa1ecb12fe8aee3fd7d98ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a613de021ae251c5ac9fefd6b250f3e99"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a613de021ae251c5ac9fefd6b250f3e99">ele_center</a> = ELE_MIDDLE</td></tr>
+<tr class="separator:a613de021ae251c5ac9fefd6b250f3e99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a930fd0c86368956ea629f59746cdcf47"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a930fd0c86368956ea629f59746cdcf47">rud_center</a> = RUD_MIDDLE</td></tr>
+<tr class="separator:a930fd0c86368956ea629f59746cdcf47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8fdc94b46a679fdc26c4f214e4b9867"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#ab8fdc94b46a679fdc26c4f214e4b9867">rc_cnt</a> = 0</td></tr>
+<tr class="separator:ab8fdc94b46a679fdc26c4f214e4b9867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a976b0f53be1bda59d5d2f00400503ec7"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a976b0f53be1bda59d5d2f00400503ec7">rc_acc</a> [4] = {0}</td></tr>
+<tr class="separator:a976b0f53be1bda59d5d2f00400503ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7124d264b2d3abf03a71cc3760b0dde"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#af7124d264b2d3abf03a71cc3760b0dde">rc_z_control_flag</a> = 1</td></tr>
+<tr class="separator:af7124d264b2d3abf03a71cc3760b0dde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a053712c200ec719a06c97f6a03442ed0"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a053712c200ec719a06c97f6a03442ed0">rc_cal_flag</a></td></tr>
+<tr class="separator:a053712c200ec719a06c97f6a03442ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac129fa658b66228d06bb8f832c0f920e"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#ac129fa658b66228d06bb8f832c0f920e">rc_enable_motor</a></td></tr>
+<tr class="separator:ac129fa658b66228d06bb8f832c0f920e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65031c5440411cde77372c162d3ce711"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a65031c5440411cde77372c162d3ce711">fly_ready</a></td></tr>
+<tr class="separator:a65031c5440411cde77372c162d3ce711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa120b8b7be9bf5cc1c4f34efb15eacf1"><td class="memItemLeft" align="right" valign="top">GPIO_TypeDef *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#aa120b8b7be9bf5cc1c4f34efb15eacf1">RC_Channel_Ports</a> [4]</td></tr>
+<tr class="separator:aa120b8b7be9bf5cc1c4f34efb15eacf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab040e0254a485be588e8f56cd75ddbd4"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#ab040e0254a485be588e8f56cd75ddbd4">RC_Channel_Pins</a> [4]</td></tr>
+<tr class="separator:ab040e0254a485be588e8f56cd75ddbd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20c292748c639b888ce926aa1e87d102"><td class="memItemLeft" align="right" valign="top">volatile int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a20c292748c639b888ce926aa1e87d102">rc_timeout</a></td></tr>
+<tr class="separator:a20c292748c639b888ce926aa1e87d102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae72c7b83fb8cb182cc5a640b38e8dd6"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#aae72c7b83fb8cb182cc5a640b38e8dd6">rc_connection_flag</a></td></tr>
+<tr class="separator:aae72c7b83fb8cb182cc5a640b38e8dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f60b02db338973842d7f62fbbd7469a"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a1f60b02db338973842d7f62fbbd7469a">rc_flag</a> [4]</td></tr>
+<tr class="separator:a1f60b02db338973842d7f62fbbd7469a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61f9d559024ba7894cfe7e522400005f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a61f9d559024ba7894cfe7e522400005f">rc_t_rise</a> [4]</td></tr>
+<tr class="separator:a61f9d559024ba7894cfe7e522400005f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15f87321eff060cf1970af62a2241274"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a15f87321eff060cf1970af62a2241274">rc_t_fall</a> [4]</td></tr>
+<tr class="separator:a15f87321eff060cf1970af62a2241274"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38ef67e5c24bb98c9a975bff4ed33922"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a38ef67e5c24bb98c9a975bff4ed33922">rc_t</a> [4]</td></tr>
+<tr class="separator:a38ef67e5c24bb98c9a975bff4ed33922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a823fa91fd4110a5b209aaa07d1e060d6"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a823fa91fd4110a5b209aaa07d1e060d6">gAIL</a></td></tr>
+<tr class="separator:a823fa91fd4110a5b209aaa07d1e060d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7ffd36bd54413bdb7492a73dacf38aa"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#af7ffd36bd54413bdb7492a73dacf38aa">gELE</a></td></tr>
+<tr class="separator:af7ffd36bd54413bdb7492a73dacf38aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14fb4aca45a8806b269e5e6fb8b1221a"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a14fb4aca45a8806b269e5e6fb8b1221a">gTHR</a></td></tr>
+<tr class="separator:a14fb4aca45a8806b269e5e6fb8b1221a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b860f05881b703a4539e1d484897ca6"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a0b860f05881b703a4539e1d484897ca6">gRUD</a></td></tr>
+<tr class="separator:a0b860f05881b703a4539e1d484897ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38a12dfb244fc51e6f60a5fcb6cdd2f6"><td class="memItemLeft" align="right" valign="top">Queue_TypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#a38a12dfb244fc51e6f60a5fcb6cdd2f6">que</a></td></tr>
+<tr class="separator:a38a12dfb244fc51e6f60a5fcb6cdd2f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6f803593aee8c037d7703d205765df2"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="rc_8c.html#af6f803593aee8c037d7703d205765df2">cnt</a></td></tr>
+<tr class="separator:af6f803593aee8c037d7703d205765df2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">マクロ定義詳解</h2>
+<a id="acac68ca9f3985c9ccc15019c405cdb75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acac68ca9f3985c9ccc15019c405cdb75">&#9670;&nbsp;</a></span>AUTO_CONNECTION_CENTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AUTO_CONNECTION_CENTER&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00030">30</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00113">HAL_TIM_IC_CaptureCallback()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a5edb09351a82612f03e43eeb489fd2eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5edb09351a82612f03e43eeb489fd2eb">&#9670;&nbsp;</a></span>add_queue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void add_queue </td>
+          <td>(</td>
+          <td class="paramtype">Queue_TypeDef *&#160;</td>
+          <td class="paramname"><em>q</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00273">273</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="rc_8c_source.html#l00078">cnt</a>.</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00113">HAL_TIM_IC_CaptureCallback()</a>.</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="rc_8c_a5edb09351a82612f03e43eeb489fd2eb_icgraph.png" border="0" usemap="#rc_8c_a5edb09351a82612f03e43eeb489fd2eb_icgraph" alt=""/></div>
+<map name="rc_8c_a5edb09351a82612f03e43eeb489fd2eb_icgraph" id="rc_8c_a5edb09351a82612f03e43eeb489fd2eb_icgraph">
+<area shape="rect" id="node3" href="rc_8c.html#a77a2401a35ddd9bd0b8fc28331b81381" title="HAL_TIM_IC_CaptureCallback" alt="" coords="139,5,335,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa1cbe54d2a51b0b892f71608ba9284ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1cbe54d2a51b0b892f71608ba9284ca">&#9670;&nbsp;</a></span>get_queue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t get_queue </td>
+          <td>(</td>
+          <td class="paramtype">Queue_TypeDef *&#160;</td>
+          <td class="paramname"><em>q</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t *&#160;</td>
+          <td class="paramname"><em>idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00303">303</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main__davide__debug_8c_source.html#l00172">main()</a>.</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="rc_8c_aa1cbe54d2a51b0b892f71608ba9284ca_icgraph.png" border="0" usemap="#rc_8c_aa1cbe54d2a51b0b892f71608ba9284ca_icgraph" alt=""/></div>
+<map name="rc_8c_aa1cbe54d2a51b0b892f71608ba9284ca_icgraph" id="rc_8c_aa1cbe54d2a51b0b892f71608ba9284ca_icgraph">
+<area shape="rect" id="node3" href="main__davide__debug_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="136,5,187,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6b44b8f661cbff6ee4d065f4fa8aea66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b44b8f661cbff6ee4d065f4fa8aea66">&#9670;&nbsp;</a></span>GetTargetEulerAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GetTargetEulerAngle </td>
+          <td>(</td>
+          <td class="paramtype">EulerAngleTypeDef *&#160;</td>
+          <td class="paramname"><em>euler_rc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">EulerAngleTypeDef *&#160;</td>
+          <td class="paramname"><em>euler_ahrs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00214">214</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="main_8c_source.html#l00104">euler_rc</a>, <a class="el" href="rc_8c_source.html#l00073">gAIL</a>, <a class="el" href="rc_8c_source.html#l00073">gELE</a>, <a class="el" href="rc_8c_source.html#l00073">gRUD</a>, <a class="el" href="rc_8c_source.html#l00032">max_pitch_rad</a>, <a class="el" href="rc_8c_source.html#l00033">max_roll_rad</a>, <a class="el" href="rc_8c_source.html#l00034">max_yaw_rad</a>, <a class="el" href="rc_8c_source.html#l00045">rc_z_control_flag</a>, <a class="el" href="rc_8c_source.html#l00035">t1</a>.</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="rc_8c_a6b44b8f661cbff6ee4d065f4fa8aea66_icgraph.png" border="0" usemap="#rc_8c_a6b44b8f661cbff6ee4d065f4fa8aea66_icgraph" alt=""/></div>
+<map name="rc_8c_a6b44b8f661cbff6ee4d065f4fa8aea66_icgraph" id="rc_8c_a6b44b8f661cbff6ee4d065f4fa8aea66_icgraph">
+<area shape="rect" id="node3" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="197,5,248,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5033855e81ba2071231b60599a3ce9a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5033855e81ba2071231b60599a3ce9a1">&#9670;&nbsp;</a></span>HAL_SYSTICK_Callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HAL_SYSTICK_Callback </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00174">174</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="rc_8c_source.html#l00100">init_rc_variables()</a>, <a class="el" href="rc_8c_source.html#l00068">rc_connection_flag</a>, <a class="el" href="rc_8c_source.html#l00067">rc_timeout</a>, <a class="el" href="timer_8c_source.html#l00045">User_Timer_Callback()</a>.</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="rc_8c_a5033855e81ba2071231b60599a3ce9a1_cgraph.png" border="0" usemap="#rc_8c_a5033855e81ba2071231b60599a3ce9a1_cgraph" alt=""/></div>
+<map name="rc_8c_a5033855e81ba2071231b60599a3ce9a1_cgraph" id="rc_8c_a5033855e81ba2071231b60599a3ce9a1_cgraph">
+<area shape="rect" id="node3" href="rc_8c.html#a0339133286d91ab0e815a96a8ab66a31" title="init_rc_variables" alt="" coords="237,5,352,32"/>
+<area shape="rect" id="node5" href="timer_8c.html#a7dd264f401a04dce3110edc611aa46ea" title="User_Timer_Callback" alt="" coords="222,56,367,83"/>
+<area shape="rect" id="node7" href="timer_8c.html#ac66f2df1ba6a2c29e6c90dd679e2de26" title="TimerProcess" alt="" coords="417,56,519,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a77a2401a35ddd9bd0b8fc28331b81381"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77a2401a35ddd9bd0b8fc28331b81381">&#9670;&nbsp;</a></span>HAL_TIM_IC_CaptureCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HAL_TIM_IC_CaptureCallback </td>
+          <td>(</td>
+          <td class="paramtype">TIM_HandleTypeDef *&#160;</td>
+          <td class="paramname"><em>htim</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00113">113</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="rc_8c_source.html#l00273">add_queue()</a>, <a class="el" href="rc_8c_source.html#l00038">ail_center</a>, <a class="el" href="rc_8c_source.html#l00030">AUTO_CONNECTION_CENTER</a>, <a class="el" href="rc_8c_source.html#l00039">ele_center</a>, <a class="el" href="rc_8c_source.html#l00077">que</a>, <a class="el" href="rc_8c_source.html#l00043">rc_acc</a>, <a class="el" href="rc_8c_source.html#l00059">RC_Channel_Pins</a>, <a class="el" href="rc_8c_source.html#l00051">RC_Channel_Ports</a>, <a class="el" href="rc_8c_source.html#l00042">rc_cnt</a>, <a class="el" href="rc_8c_source.html#l00069">rc_flag</a>, <a class="el" href="rc_8c_source.html#l00071">rc_t</a>, <a class="el" href="rc_8c_source.html#l00071">rc_t_fall</a>, <a class="el" href="rc_8c_source.html#l00071">rc_t_rise</a>, <a class="el" href="rc_8c_source.html#l00067">rc_timeout</a>, <a class="el" href="rc_8c_source.html#l00040">rud_center</a>, <a class="el" href="rc_8c_source.html#l00188">update_rc_data()</a> (計16項目).</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="rc_8c_a77a2401a35ddd9bd0b8fc28331b81381_cgraph.png" border="0" usemap="#rc_8c_a77a2401a35ddd9bd0b8fc28331b81381_cgraph" alt=""/></div>
+<map name="rc_8c_a77a2401a35ddd9bd0b8fc28331b81381_cgraph" id="rc_8c_a77a2401a35ddd9bd0b8fc28331b81381_cgraph">
+<area shape="rect" id="node3" href="rc_8c.html#a5edb09351a82612f03e43eeb489fd2eb" title="add_queue" alt="" coords="264,5,349,32"/>
+<area shape="rect" id="node5" href="rc_8c.html#a792ab62950fad7697ab5650e7345a6b8" title="update_rc_data" alt="" coords="251,56,362,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab1cf0a50b9ef73e5245bc66fe6371501"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1cf0a50b9ef73e5245bc66fe6371501">&#9670;&nbsp;</a></span>init_queue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_queue </td>
+          <td>(</td>
+          <td class="paramtype">Queue_TypeDef *&#160;</td>
+          <td class="paramname"><em>q</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00257">257</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00083">init_remote_control()</a>.</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="rc_8c_ab1cf0a50b9ef73e5245bc66fe6371501_icgraph.png" border="0" usemap="#rc_8c_ab1cf0a50b9ef73e5245bc66fe6371501_icgraph" alt=""/></div>
+<map name="rc_8c_ab1cf0a50b9ef73e5245bc66fe6371501_icgraph" id="rc_8c_ab1cf0a50b9ef73e5245bc66fe6371501_icgraph">
+<area shape="rect" id="node3" href="rc_8c.html#a56d6d7d99f55b37375234a664e127fa7" title="init_remote_control" alt="" coords="137,5,269,32"/>
+<area shape="rect" id="node5" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="317,5,368,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0339133286d91ab0e815a96a8ab66a31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0339133286d91ab0e815a96a8ab66a31">&#9670;&nbsp;</a></span>init_rc_variables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_rc_variables </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00100">100</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="rc_8c_source.html#l00068">rc_connection_flag</a>, <a class="el" href="rc_8c_source.html#l00069">rc_flag</a>, <a class="el" href="rc_8c_source.html#l00071">rc_t</a>, <a class="el" href="rc_8c_source.html#l00071">rc_t_fall</a>, <a class="el" href="rc_8c_source.html#l00071">rc_t_rise</a>.</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00174">HAL_SYSTICK_Callback()</a>, <a class="el" href="rc_8c_source.html#l00083">init_remote_control()</a>.</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="rc_8c_a0339133286d91ab0e815a96a8ab66a31_icgraph.png" border="0" usemap="#rc_8c_a0339133286d91ab0e815a96a8ab66a31_icgraph" alt=""/></div>
+<map name="rc_8c_a0339133286d91ab0e815a96a8ab66a31_icgraph" id="rc_8c_a0339133286d91ab0e815a96a8ab66a31_icgraph">
+<area shape="rect" id="node3" href="rc_8c.html#a5033855e81ba2071231b60599a3ce9a1" title="HAL_SYSTICK_Callback" alt="" coords="169,5,335,32"/>
+<area shape="rect" id="node5" href="rc_8c.html#a56d6d7d99f55b37375234a664e127fa7" title="init_remote_control" alt="" coords="186,56,318,83"/>
+<area shape="rect" id="node7" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="384,56,435,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a56d6d7d99f55b37375234a664e127fa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56d6d7d99f55b37375234a664e127fa7">&#9670;&nbsp;</a></span>init_remote_control()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_remote_control </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00083">83</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="rc_8c_source.html#l00078">cnt</a>, <a class="el" href="rc_8c_source.html#l00073">gAIL</a>, <a class="el" href="rc_8c_source.html#l00073">gELE</a>, <a class="el" href="rc_8c_source.html#l00073">gRUD</a>, <a class="el" href="rc_8c_source.html#l00073">gTHR</a>, <a class="el" href="rc_8c_source.html#l00257">init_queue()</a>, <a class="el" href="rc_8c_source.html#l00100">init_rc_variables()</a>, <a class="el" href="rc_8c_source.html#l00077">que</a>, <a class="el" href="rc_8c_source.html#l00068">rc_connection_flag</a>, <a class="el" href="rc_8c_source.html#l00067">rc_timeout</a>.</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="rc_8c_a56d6d7d99f55b37375234a664e127fa7_cgraph.png" border="0" usemap="#rc_8c_a56d6d7d99f55b37375234a664e127fa7_cgraph" alt=""/></div>
+<map name="rc_8c_a56d6d7d99f55b37375234a664e127fa7_cgraph" id="rc_8c_a56d6d7d99f55b37375234a664e127fa7_cgraph">
+<area shape="rect" id="node3" href="rc_8c.html#ab1cf0a50b9ef73e5245bc66fe6371501" title="init_queue" alt="" coords="203,5,285,32"/>
+<area shape="rect" id="node5" href="rc_8c.html#a0339133286d91ab0e815a96a8ab66a31" title="init_rc_variables" alt="" coords="187,56,301,83"/>
+</map>
+</div>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="rc_8c_a56d6d7d99f55b37375234a664e127fa7_icgraph.png" border="0" usemap="#rc_8c_a56d6d7d99f55b37375234a664e127fa7_icgraph" alt=""/></div>
+<map name="rc_8c_a56d6d7d99f55b37375234a664e127fa7_icgraph" id="rc_8c_a56d6d7d99f55b37375234a664e127fa7_icgraph">
+<area shape="rect" id="node3" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="187,5,237,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a792ab62950fad7697ab5650e7345a6b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a792ab62950fad7697ab5650e7345a6b8">&#9670;&nbsp;</a></span>update_rc_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void update_rc_data </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00188">188</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="rc_8c_source.html#l00038">ail_center</a>, <a class="el" href="rc_8c_source.html#l00039">ele_center</a>, <a class="el" href="main_8c_source.html#l00080">fly_ready</a>, <a class="el" href="rc_8c_source.html#l00073">gAIL</a>, <a class="el" href="rc_8c_source.html#l00073">gELE</a>, <a class="el" href="rc_8c_source.html#l00073">gRUD</a>, <a class="el" href="rc_8c_source.html#l00073">gTHR</a>, <a class="el" href="main_8c_source.html#l00077">rc_cal_flag</a>, <a class="el" href="main_8c_source.html#l00078">rc_enable_motor</a>, <a class="el" href="rc_8c_source.html#l00071">rc_t</a>, <a class="el" href="rc_8c_source.html#l00040">rud_center</a>.</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00113">HAL_TIM_IC_CaptureCallback()</a>.</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="rc_8c_a792ab62950fad7697ab5650e7345a6b8_icgraph.png" border="0" usemap="#rc_8c_a792ab62950fad7697ab5650e7345a6b8_icgraph" alt=""/></div>
+<map name="rc_8c_a792ab62950fad7697ab5650e7345a6b8_icgraph" id="rc_8c_a792ab62950fad7697ab5650e7345a6b8_icgraph">
+<area shape="rect" id="node3" href="rc_8c.html#a77a2401a35ddd9bd0b8fc28331b81381" title="HAL_TIM_IC_CaptureCallback" alt="" coords="166,5,362,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">変数詳解</h2>
+<a id="ad3df962c6aa1ecb12fe8aee3fd7d98ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3df962c6aa1ecb12fe8aee3fd7d98ba">&#9670;&nbsp;</a></span>ail_center</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t ail_center = AIL_MIDDLE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00038">38</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00113">HAL_TIM_IC_CaptureCallback()</a>, <a class="el" href="rc_8c_source.html#l00188">update_rc_data()</a>.</p>
+
+</div>
+</div>
+<a id="af6f803593aee8c037d7703d205765df2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6f803593aee8c037d7703d205765df2">&#9670;&nbsp;</a></span>cnt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t cnt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00078">78</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00273">add_queue()</a>, <a class="el" href="rc_8c_source.html#l00083">init_remote_control()</a>.</p>
+
+</div>
+</div>
+<a id="a613de021ae251c5ac9fefd6b250f3e99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a613de021ae251c5ac9fefd6b250f3e99">&#9670;&nbsp;</a></span>ele_center</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t ele_center = ELE_MIDDLE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00039">39</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00113">HAL_TIM_IC_CaptureCallback()</a>, <a class="el" href="rc_8c_source.html#l00188">update_rc_data()</a>.</p>
+
+</div>
+</div>
+<a id="a65031c5440411cde77372c162d3ce711"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65031c5440411cde77372c162d3ce711">&#9670;&nbsp;</a></span>fly_ready</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t fly_ready</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00080">80</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00188">update_rc_data()</a>.</p>
+
+</div>
+</div>
+<a id="a823fa91fd4110a5b209aaa07d1e060d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a823fa91fd4110a5b209aaa07d1e060d6">&#9670;&nbsp;</a></span>gAIL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t gAIL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00073">73</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00214">GetTargetEulerAngle()</a>, <a class="el" href="rc_8c_source.html#l00083">init_remote_control()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>, <a class="el" href="rc_8c_source.html#l00188">update_rc_data()</a>.</p>
+
+</div>
+</div>
+<a id="af7ffd36bd54413bdb7492a73dacf38aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7ffd36bd54413bdb7492a73dacf38aa">&#9670;&nbsp;</a></span>gELE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t gELE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00073">73</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00214">GetTargetEulerAngle()</a>, <a class="el" href="rc_8c_source.html#l00083">init_remote_control()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>, <a class="el" href="rc_8c_source.html#l00188">update_rc_data()</a>.</p>
+
+</div>
+</div>
+<a id="a0b860f05881b703a4539e1d484897ca6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b860f05881b703a4539e1d484897ca6">&#9670;&nbsp;</a></span>gRUD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t gRUD</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00073">73</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00214">GetTargetEulerAngle()</a>, <a class="el" href="rc_8c_source.html#l00083">init_remote_control()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>, <a class="el" href="rc_8c_source.html#l00188">update_rc_data()</a>.</p>
+
+</div>
+</div>
+<a id="a14fb4aca45a8806b269e5e6fb8b1221a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14fb4aca45a8806b269e5e6fb8b1221a">&#9670;&nbsp;</a></span>gTHR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t gTHR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00073">73</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="ahrs_8c_source.html#l00025">ahrs_fusion_ag()</a>, <a class="el" href="flight__control_8c_source.html#l00056">FlightControlPID()</a>, <a class="el" href="flight__control_8c_source.html#l00193">FlightControlPID_innerLoop()</a>, <a class="el" href="flight__control_8c_source.html#l00154">FlightControlPID_OuterLoop()</a>, <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="rc_8c_source.html#l00083">init_remote_control()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>, <a class="el" href="rc_8c_source.html#l00188">update_rc_data()</a>.</p>
+
+</div>
+</div>
+<a id="ab83673072b1f49cb25295966eb15e0fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab83673072b1f49cb25295966eb15e0fb">&#9670;&nbsp;</a></span>max_pitch_rad</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float max_pitch_rad = PI*PITCH_MAX_DEG/180.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00032">32</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00214">GetTargetEulerAngle()</a>.</p>
+
+</div>
+</div>
+<a id="a73dd20c732820271fac2d5f8d1f148e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73dd20c732820271fac2d5f8d1f148e3">&#9670;&nbsp;</a></span>max_roll_rad</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float max_roll_rad = PI*ROLL_MAX_DEG/180.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00033">33</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00214">GetTargetEulerAngle()</a>.</p>
+
+</div>
+</div>
+<a id="a7a644503fb979ac6cfd60fbd0bb32c62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a644503fb979ac6cfd60fbd0bb32c62">&#9670;&nbsp;</a></span>max_yaw_rad</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float max_yaw_rad = PI*YAW_MAX_DEG/180.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00034">34</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00214">GetTargetEulerAngle()</a>.</p>
+
+</div>
+</div>
+<a id="a38a12dfb244fc51e6f60a5fcb6cdd2f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38a12dfb244fc51e6f60a5fcb6cdd2f6">&#9670;&nbsp;</a></span>que</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Queue_TypeDef que</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00077">77</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00113">HAL_TIM_IC_CaptureCallback()</a>, <a class="el" href="rc_8c_source.html#l00083">init_remote_control()</a>, <a class="el" href="main__davide__debug_8c_source.html#l00172">main()</a>.</p>
+
+</div>
+</div>
+<a id="a976b0f53be1bda59d5d2f00400503ec7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a976b0f53be1bda59d5d2f00400503ec7">&#9670;&nbsp;</a></span>rc_acc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t rc_acc[4] = {0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00043">43</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00113">HAL_TIM_IC_CaptureCallback()</a>.</p>
+
+</div>
+</div>
+<a id="a053712c200ec719a06c97f6a03442ed0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a053712c200ec719a06c97f6a03442ed0">&#9670;&nbsp;</a></span>rc_cal_flag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t rc_cal_flag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00077">77</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="rc_8c_source.html#l00188">update_rc_data()</a>.</p>
+
+</div>
+</div>
+<a id="ab040e0254a485be588e8f56cd75ddbd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab040e0254a485be588e8f56cd75ddbd4">&#9670;&nbsp;</a></span>RC_Channel_Pins</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t RC_Channel_Pins[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">=</div><div class="line">    {</div><div class="line">      RC_CHANNEL1_PIN,</div><div class="line">      RC_CHANNEL2_PIN,</div><div class="line">      RC_CHANNEL3_PIN,</div><div class="line">      RC_CHANNEL4_PIN</div><div class="line">    }</div></div><!-- fragment -->
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00059">59</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00113">HAL_TIM_IC_CaptureCallback()</a>.</p>
+
+</div>
+</div>
+<a id="aa120b8b7be9bf5cc1c4f34efb15eacf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa120b8b7be9bf5cc1c4f34efb15eacf1">&#9670;&nbsp;</a></span>RC_Channel_Ports</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GPIO_TypeDef* RC_Channel_Ports[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>初期値:</b><div class="fragment"><div class="line">=</div><div class="line">    {</div><div class="line">      RC_CHANNEL1_PORT,</div><div class="line">      RC_CHANNEL2_PORT,</div><div class="line">      RC_CHANNEL3_PORT,</div><div class="line">      RC_CHANNEL4_PORT</div><div class="line">    }</div></div><!-- fragment -->
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00051">51</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00113">HAL_TIM_IC_CaptureCallback()</a>.</p>
+
+</div>
+</div>
+<a id="ab8fdc94b46a679fdc26c4f214e4b9867"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8fdc94b46a679fdc26c4f214e4b9867">&#9670;&nbsp;</a></span>rc_cnt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t rc_cnt = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00042">42</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00113">HAL_TIM_IC_CaptureCallback()</a>.</p>
+
+</div>
+</div>
+<a id="aae72c7b83fb8cb182cc5a640b38e8dd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae72c7b83fb8cb182cc5a640b38e8dd6">&#9670;&nbsp;</a></span>rc_connection_flag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char rc_connection_flag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00068">68</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00174">HAL_SYSTICK_Callback()</a>, <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="rc_8c_source.html#l00100">init_rc_variables()</a>, <a class="el" href="rc_8c_source.html#l00083">init_remote_control()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="ac129fa658b66228d06bb8f832c0f920e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac129fa658b66228d06bb8f832c0f920e">&#9670;&nbsp;</a></span>rc_enable_motor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t rc_enable_motor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00078">78</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>, <a class="el" href="rc_8c_source.html#l00188">update_rc_data()</a>.</p>
+
+</div>
+</div>
+<a id="a1f60b02db338973842d7f62fbbd7469a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f60b02db338973842d7f62fbbd7469a">&#9670;&nbsp;</a></span>rc_flag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char rc_flag[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00069">69</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00113">HAL_TIM_IC_CaptureCallback()</a>, <a class="el" href="rc_8c_source.html#l00100">init_rc_variables()</a>.</p>
+
+</div>
+</div>
+<a id="a38ef67e5c24bb98c9a975bff4ed33922"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38ef67e5c24bb98c9a975bff4ed33922">&#9670;&nbsp;</a></span>rc_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int rc_t[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00071">71</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00113">HAL_TIM_IC_CaptureCallback()</a>, <a class="el" href="rc_8c_source.html#l00100">init_rc_variables()</a>, <a class="el" href="rc_8c_source.html#l00188">update_rc_data()</a>.</p>
+
+</div>
+</div>
+<a id="a15f87321eff060cf1970af62a2241274"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15f87321eff060cf1970af62a2241274">&#9670;&nbsp;</a></span>rc_t_fall</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int rc_t_fall[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00071">71</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00113">HAL_TIM_IC_CaptureCallback()</a>, <a class="el" href="rc_8c_source.html#l00100">init_rc_variables()</a>.</p>
+
+</div>
+</div>
+<a id="a61f9d559024ba7894cfe7e522400005f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61f9d559024ba7894cfe7e522400005f">&#9670;&nbsp;</a></span>rc_t_rise</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int rc_t_rise[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00071">71</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00113">HAL_TIM_IC_CaptureCallback()</a>, <a class="el" href="rc_8c_source.html#l00100">init_rc_variables()</a>.</p>
+
+</div>
+</div>
+<a id="a20c292748c639b888ce926aa1e87d102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20c292748c639b888ce926aa1e87d102">&#9670;&nbsp;</a></span>rc_timeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int rc_timeout</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00067">67</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00174">HAL_SYSTICK_Callback()</a>, <a class="el" href="rc_8c_source.html#l00113">HAL_TIM_IC_CaptureCallback()</a>, <a class="el" href="rc_8c_source.html#l00083">init_remote_control()</a>.</p>
+
+</div>
+</div>
+<a id="af7124d264b2d3abf03a71cc3760b0dde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7124d264b2d3abf03a71cc3760b0dde">&#9670;&nbsp;</a></span>rc_z_control_flag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t rc_z_control_flag = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00045">45</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00214">GetTargetEulerAngle()</a>.</p>
+
+</div>
+</div>
+<a id="a930fd0c86368956ea629f59746cdcf47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a930fd0c86368956ea629f59746cdcf47">&#9670;&nbsp;</a></span>rud_center</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t rud_center = RUD_MIDDLE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00040">40</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00113">HAL_TIM_IC_CaptureCallback()</a>, <a class="el" href="rc_8c_source.html#l00188">update_rc_data()</a>.</p>
+
+</div>
+</div>
+<a id="a24974b410f39e0c994c4ba643830e054"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24974b410f39e0c994c4ba643830e054">&#9670;&nbsp;</a></span>t1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t t1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00035">35</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="rc_8c_source.html#l00214">GetTargetEulerAngle()</a>, <a class="el" href="sensor__data_8c_source.html#l00065">ReadSensorRawData()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_513367233d9dcf25dec1a3db279dfd4f.html">ST_Drone_FCU_F401</a></li><li class="navelem"><a class="el" href="dir_2ffaa647a837f03b1b3bf520c0797156.html">STM32 FW Project</a></li><li class="navelem"><a class="el" href="dir_b685d42d1dec87e165ba17d7586fb514.html">Official latest release 221117</a></li><li class="navelem"><a class="el" href="dir_a08362fbf68805941da87b596fa9668a.html">Src</a></li><li class="navelem"><a class="el" href="rc_8c.html">rc.c</a></li>
+    <li class="footer">2018年12月21日(金) 08時52分30秒作成 - STmicroCopter_20181010 / 構成: 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

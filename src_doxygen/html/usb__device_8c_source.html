@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>STmicroCopter_20181010: usb_device.c ソースファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">STmicroCopter_20181010
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('usb__device_8c_source.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">usb_device.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="usb__device_8c.html">[詳解]</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/* Includes ------------------------------------------------------------------*/</span></div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;usb_device.h&quot;</span></div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;usbd_core.h&quot;</span></div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;usbd_desc.h&quot;</span></div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;usbd_cdc.h&quot;</span></div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;usbd_cdc_if.h&quot;</span></div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">/* USB Device Core handle declaration */</span></div><div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="group___u_s_b_d___c_d_c___private___variables.html#gafe8a2d9e10b33d5e7906f9f04f95358e">   44</a></span>&#160;USBD_HandleTypeDef <a class="code" href="group___u_s_b_d___c_d_c___private___variables.html#gafe8a2d9e10b33d5e7906f9f04f95358e">hUsbDeviceFS</a>;</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">/* init function */</span>                     </div><div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="usb__device_8c.html#adab4f7fc1db4ce2be073d3913209d2af">   47</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="usb__device_8c.html#adab4f7fc1db4ce2be073d3913209d2af">MX_USB_DEVICE_Init</a>(<span class="keywordtype">void</span>)</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="comment">/* Init Device Library,Add Supported Class and Start the library*/</span></div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  USBD_Init(&amp;<a class="code" href="group___u_s_b_d___c_d_c___private___variables.html#gafe8a2d9e10b33d5e7906f9f04f95358e">hUsbDeviceFS</a>, &amp;<a class="code" href="group___u_s_b_d___d_e_s_c___private___variables.html#gae36d67393118d9d8531a8d633e23a797">FS_Desc</a>, DEVICE_FS);</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  USBD_RegisterClass(&amp;<a class="code" href="group___u_s_b_d___c_d_c___private___variables.html#gafe8a2d9e10b33d5e7906f9f04f95358e">hUsbDeviceFS</a>, &amp;USBD_CDC);</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  USBD_CDC_RegisterInterface(&amp;<a class="code" href="group___u_s_b_d___c_d_c___private___variables.html#gafe8a2d9e10b33d5e7906f9f04f95358e">hUsbDeviceFS</a>, &amp;<a class="code" href="group___u_s_b_d___c_d_c___private___function_prototypes.html#ga99394ed19b774f171df96c2848c411ed">USBD_Interface_fops_FS</a>);</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  USBD_Start(&amp;<a class="code" href="group___u_s_b_d___c_d_c___private___variables.html#gafe8a2d9e10b33d5e7906f9f04f95358e">hUsbDeviceFS</a>);</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/</span></div><div class="ttc" id="usb__device_8c_html_adab4f7fc1db4ce2be073d3913209d2af"><div class="ttname"><a href="usb__device_8c.html#adab4f7fc1db4ce2be073d3913209d2af">MX_USB_DEVICE_Init</a></div><div class="ttdeci">void MX_USB_DEVICE_Init(void)</div><div class="ttdef"><b>Definition:</b> <a href="usb__device_8c_source.html#l00047">usb_device.c:47</a></div></div>
+<div class="ttc" id="group___u_s_b_d___d_e_s_c___private___variables_html_gae36d67393118d9d8531a8d633e23a797"><div class="ttname"><a href="group___u_s_b_d___d_e_s_c___private___variables.html#gae36d67393118d9d8531a8d633e23a797">FS_Desc</a></div><div class="ttdeci">USBD_DescriptorsTypeDef FS_Desc</div><div class="ttdef"><b>Definition:</b> <a href="usbd__desc_8c_source.html#l00102">usbd_desc.c:102</a></div></div>
+<div class="ttc" id="group___u_s_b_d___c_d_c___private___function_prototypes_html_ga99394ed19b774f171df96c2848c411ed"><div class="ttname"><a href="group___u_s_b_d___c_d_c___private___function_prototypes.html#ga99394ed19b774f171df96c2848c411ed">USBD_Interface_fops_FS</a></div><div class="ttdeci">USBD_CDC_ItfTypeDef USBD_Interface_fops_FS</div><div class="ttdef"><b>Definition:</b> <a href="usbd__cdc__if_8c_source.html#l00105">usbd_cdc_if.c:105</a></div></div>
+<div class="ttc" id="group___u_s_b_d___c_d_c___private___variables_html_gafe8a2d9e10b33d5e7906f9f04f95358e"><div class="ttname"><a href="group___u_s_b_d___c_d_c___private___variables.html#gafe8a2d9e10b33d5e7906f9f04f95358e">hUsbDeviceFS</a></div><div class="ttdeci">USBD_HandleTypeDef hUsbDeviceFS</div><div class="ttdef"><b>Definition:</b> <a href="usb__device_8c_source.html#l00044">usb_device.c:44</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_513367233d9dcf25dec1a3db279dfd4f.html">ST_Drone_FCU_F401</a></li><li class="navelem"><a class="el" href="dir_2ffaa647a837f03b1b3bf520c0797156.html">STM32 FW Project</a></li><li class="navelem"><a class="el" href="dir_b685d42d1dec87e165ba17d7586fb514.html">Official latest release 221117</a></li><li class="navelem"><a class="el" href="dir_a08362fbf68805941da87b596fa9668a.html">Src</a></li><li class="navelem"><a class="el" href="usb__device_8c.html">usb_device.c</a></li>
+    <li class="footer">2018年12月21日(金) 08時52分29秒作成 - STmicroCopter_20181010 / 構成: 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,2358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.14"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>STmicroCopter_20181010: main.c ファイル</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">STmicroCopter_20181010
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.8.14 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'検索');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('main_8c.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">クラス</a> &#124;
+<a href="#func-members">関数</a> &#124;
+<a href="#var-members">変数</a>  </div>
+  <div class="headertitle">
+<div class="title">main.c ファイル</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;stm32f4xx_hal.h&quot;</code><br />
+<code>#include &quot;usb_device.h&quot;</code><br />
+<code>#include &quot;debug.h&quot;</code><br />
+<code>#include &quot;config_drone.h&quot;</code><br />
+<code>#include &quot;timer.h&quot;</code><br />
+<code>#include &quot;rc.h&quot;</code><br />
+<code>#include &quot;steval_fcu001_v1.h&quot;</code><br />
+<code>#include &quot;steval_fcu001_v1_accelero.h&quot;</code><br />
+<code>#include &quot;steval_fcu001_v1_gyro.h&quot;</code><br />
+<code>#include &quot;steval_fcu001_v1_magneto.h&quot;</code><br />
+<code>#include &quot;steval_fcu001_v1_pressure.h&quot;</code><br />
+<code>#include &quot;sensor_data.h&quot;</code><br />
+<code>#include &quot;quaternion.h&quot;</code><br />
+<code>#include &quot;ahrs.h&quot;</code><br />
+<code>#include &quot;flight_control.h&quot;</code><br />
+<code>#include &quot;motor.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+main.c の依存先関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c__incl.png" border="0" usemap="#main_8c" alt=""/></div>
+<map name="main_8c" id="main_8c">
+</map>
+</div>
+</div>
+<p><a href="main_8c_source.html">[ソースコード]</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+クラス</h2></td></tr>
+<tr class="memitem:struct_attitude___degree"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main__davide__debug_8c.html#struct_attitude___degree">Attitude_Degree</a></td></tr>
+<tr class="separator:struct_attitude___degree"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:struct_i_i_r___coeff"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main__davide__debug_8c.html#struct_i_i_r___coeff">IIR_Coeff</a></td></tr>
+<tr class="separator:struct_i_i_r___coeff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+関数</h2></td></tr>
+<tr class="memitem:a70af21c671abfcc773614a9a4f63d920"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a70af21c671abfcc773614a9a4f63d920">SystemClock_Config</a> (void)</td></tr>
+<tr class="separator:a70af21c671abfcc773614a9a4f63d920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac724e431d2af879252de35615be2bdea"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ac724e431d2af879252de35615be2bdea">MX_GPIO_Init</a> (void)</td></tr>
+<tr class="separator:ac724e431d2af879252de35615be2bdea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acccd58aa70215a6b184ad242312ffd0c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#acccd58aa70215a6b184ad242312ffd0c">MX_ADC1_Init</a> (void)</td></tr>
+<tr class="separator:acccd58aa70215a6b184ad242312ffd0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af81398f9775695df0b172367651ca3e6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#af81398f9775695df0b172367651ca3e6">MX_SPI1_Init</a> (void)</td></tr>
+<tr class="separator:af81398f9775695df0b172367651ca3e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea85daa666c03d85fd59edef711ebb08"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aea85daa666c03d85fd59edef711ebb08">MX_SPI2_Init</a> (void)</td></tr>
+<tr class="separator:aea85daa666c03d85fd59edef711ebb08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b8ff887fd3fdf26605e35927e4ff202"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a4b8ff887fd3fdf26605e35927e4ff202">MX_TIM2_Init</a> (void)</td></tr>
+<tr class="separator:a4b8ff887fd3fdf26605e35927e4ff202"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef1e0b132b1af1c923cc420a57180c67"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aef1e0b132b1af1c923cc420a57180c67">MX_TIM4_Init</a> (void)</td></tr>
+<tr class="separator:aef1e0b132b1af1c923cc420a57180c67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31471cefed9f6de5861a05d61de7e302"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a31471cefed9f6de5861a05d61de7e302">MX_TIM9_Init</a> (void)</td></tr>
+<tr class="separator:a31471cefed9f6de5861a05d61de7e302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57d1167735baafab8e3288526c424929"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a57d1167735baafab8e3288526c424929">MX_USART1_UART_Init</a> (void)</td></tr>
+<tr class="separator:a57d1167735baafab8e3288526c424929"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd7834e88f9fa4b666b914e71fd660dc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#acd7834e88f9fa4b666b914e71fd660dc">initializeAllSensors</a> (void)</td></tr>
+<tr class="memdesc:acd7834e88f9fa4b666b914e71fd660dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize all sensors  <a href="#acd7834e88f9fa4b666b914e71fd660dc">[詳解]</a><br /></td></tr>
+<tr class="separator:acd7834e88f9fa4b666b914e71fd660dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb2655609bdbb1c373141219ee4f76d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#abb2655609bdbb1c373141219ee4f76d2">enableAllSensors</a> (void)</td></tr>
+<tr class="memdesc:abb2655609bdbb1c373141219ee4f76d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable all sensors  <a href="#abb2655609bdbb1c373141219ee4f76d2">[詳解]</a><br /></td></tr>
+<tr class="separator:abb2655609bdbb1c373141219ee4f76d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
+<tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a3b0ad512a6e6c6157440b68d395eac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a8a3b0ad512a6e6c6157440b68d395eac">HAL_TIM_PeriodElapsedCallback</a> (TIM_HandleTypeDef *htim)</td></tr>
+<tr class="separator:a8a3b0ad512a6e6c6157440b68d395eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+変数</h2></td></tr>
+<tr class="memitem:a22b804736f5648d52f639b2647d4ed13"><td class="memItemLeft" align="right" valign="top">ADC_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a22b804736f5648d52f639b2647d4ed13">hadc1</a></td></tr>
+<tr class="separator:a22b804736f5648d52f639b2647d4ed13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c6222bae4d0328dd843ae099623b40b"><td class="memItemLeft" align="right" valign="top">SPI_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a9c6222bae4d0328dd843ae099623b40b">hspi1</a></td></tr>
+<tr class="separator:a9c6222bae4d0328dd843ae099623b40b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9da65f935e805137e2eb4e18c5ab224"><td class="memItemLeft" align="right" valign="top">SPI_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ab9da65f935e805137e2eb4e18c5ab224">hspi2</a></td></tr>
+<tr class="separator:ab9da65f935e805137e2eb4e18c5ab224"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c80fd5510e2990a59a5c90d745c716c"><td class="memItemLeft" align="right" valign="top">TIM_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a2c80fd5510e2990a59a5c90d745c716c">htim2</a></td></tr>
+<tr class="separator:a2c80fd5510e2990a59a5c90d745c716c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85788cec5a97ee377e4ee2e74f026484"><td class="memItemLeft" align="right" valign="top">TIM_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a85788cec5a97ee377e4ee2e74f026484">htim4</a></td></tr>
+<tr class="separator:a85788cec5a97ee377e4ee2e74f026484"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31f6f787777409af5ed0d131b52b7988"><td class="memItemLeft" align="right" valign="top">TIM_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a31f6f787777409af5ed0d131b52b7988">htim9</a></td></tr>
+<tr class="separator:a31f6f787777409af5ed0d131b52b7988"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cf715bef37f7e8ef385a30974a5f0d5"><td class="memItemLeft" align="right" valign="top">UART_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a2cf715bef37f7e8ef385a30974a5f0d5">huart1</a></td></tr>
+<tr class="separator:a2cf715bef37f7e8ef385a30974a5f0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af52622d0e8c04fa5b2d8e74a0006fe06"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#af52622d0e8c04fa5b2d8e74a0006fe06">LSM6DSL_X_0_handle</a> = NULL</td></tr>
+<tr class="separator:af52622d0e8c04fa5b2d8e74a0006fe06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bba0a45cc42203b74bbca0d42a6dd42"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a2bba0a45cc42203b74bbca0d42a6dd42">LSM6DSL_G_0_handle</a> = NULL</td></tr>
+<tr class="separator:a2bba0a45cc42203b74bbca0d42a6dd42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c5ab1b17afdff44423576ae89eaf638"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a5c5ab1b17afdff44423576ae89eaf638">LIS2MDL_M_0_handle</a> = NULL</td></tr>
+<tr class="separator:a5c5ab1b17afdff44423576ae89eaf638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3968204e1de5ac9aa25e177bca02cd90"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a3968204e1de5ac9aa25e177bca02cd90">LPS22HB_P_0_handle</a> = NULL</td></tr>
+<tr class="separator:a3968204e1de5ac9aa25e177bca02cd90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38a12dfb244fc51e6f60a5fcb6cdd2f6"><td class="memItemLeft" align="right" valign="top">Queue_TypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a38a12dfb244fc51e6f60a5fcb6cdd2f6">que</a></td></tr>
+<tr class="separator:a38a12dfb244fc51e6f60a5fcb6cdd2f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2aab32b637b8d5a2c2fed9fb41d4cf4"><td class="memItemLeft" align="right" valign="top">volatile tUserTimer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aa2aab32b637b8d5a2c2fed9fb41d4cf4">tim</a></td></tr>
+<tr class="separator:aa2aab32b637b8d5a2c2fed9fb41d4cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae72c7b83fb8cb182cc5a640b38e8dd6"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aae72c7b83fb8cb182cc5a640b38e8dd6">rc_connection_flag</a></td></tr>
+<tr class="separator:aae72c7b83fb8cb182cc5a640b38e8dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a823fa91fd4110a5b209aaa07d1e060d6"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a823fa91fd4110a5b209aaa07d1e060d6">gAIL</a></td></tr>
+<tr class="separator:a823fa91fd4110a5b209aaa07d1e060d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7ffd36bd54413bdb7492a73dacf38aa"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#af7ffd36bd54413bdb7492a73dacf38aa">gELE</a></td></tr>
+<tr class="separator:af7ffd36bd54413bdb7492a73dacf38aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14fb4aca45a8806b269e5e6fb8b1221a"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a14fb4aca45a8806b269e5e6fb8b1221a">gTHR</a></td></tr>
+<tr class="separator:a14fb4aca45a8806b269e5e6fb8b1221a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b860f05881b703a4539e1d484897ca6"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a0b860f05881b703a4539e1d484897ca6">gRUD</a></td></tr>
+<tr class="separator:a0b860f05881b703a4539e1d484897ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a053712c200ec719a06c97f6a03442ed0"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a053712c200ec719a06c97f6a03442ed0">rc_cal_flag</a> = 0</td></tr>
+<tr class="separator:a053712c200ec719a06c97f6a03442ed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac129fa658b66228d06bb8f832c0f920e"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ac129fa658b66228d06bb8f832c0f920e">rc_enable_motor</a> = 0</td></tr>
+<tr class="separator:ac129fa658b66228d06bb8f832c0f920e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b445800a5c3e4d3ae35a84de29205fa"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a7b445800a5c3e4d3ae35a84de29205fa">rc_cal_cnt</a> = 0</td></tr>
+<tr class="separator:a7b445800a5c3e4d3ae35a84de29205fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65031c5440411cde77372c162d3ce711"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a65031c5440411cde77372c162d3ce711">fly_ready</a> = 0</td></tr>
+<tr class="separator:a65031c5440411cde77372c162d3ce711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49725d2659c0161681c55e3763942f68"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a49725d2659c0161681c55e3763942f68">ch</a></td></tr>
+<tr class="separator:a49725d2659c0161681c55e3763942f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81616c0bfeffb572f7646210d018cd6d"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a81616c0bfeffb572f7646210d018cd6d">ch_flag</a></td></tr>
+<tr class="separator:a81616c0bfeffb572f7646210d018cd6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad23a5932c2dbb042bc713d00e89f3083"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ad23a5932c2dbb042bc713d00e89f3083">tim9_event_flag</a> = 0</td></tr>
+<tr class="separator:ad23a5932c2dbb042bc713d00e89f3083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a041ecf6f95ae0110f062329b99fa5b23"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a041ecf6f95ae0110f062329b99fa5b23">tim9_cnt</a> = 0</td></tr>
+<tr class="separator:a041ecf6f95ae0110f062329b99fa5b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00d47209cda511315c482e5b0d408bc5"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a00d47209cda511315c482e5b0d408bc5">tim9_cnt2</a> = 0</td></tr>
+<tr class="separator:a00d47209cda511315c482e5b0d408bc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb42f66eb48f47f74bad9cee14fcab32"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#afb42f66eb48f47f74bad9cee14fcab32">tmp_euler_z</a> = 0</td></tr>
+<tr class="separator:afb42f66eb48f47f74bad9cee14fcab32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18a763208e1dd32b900e92dc90257fa5"><td class="memItemLeft" align="right" valign="top">P_PI_PIDControlTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a18a763208e1dd32b900e92dc90257fa5">pid</a></td></tr>
+<tr class="separator:a18a763208e1dd32b900e92dc90257fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ce1ff660374d487324a8e956f33db46"><td class="memItemLeft" align="right" valign="top">EulerAngleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a9ce1ff660374d487324a8e956f33db46">euler_rc</a></td></tr>
+<tr class="separator:a9ce1ff660374d487324a8e956f33db46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae298a2716592e95ef6adb1bf10a75bcc"><td class="memItemLeft" align="right" valign="top">EulerAngleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ae298a2716592e95ef6adb1bf10a75bcc">euler_ahrs</a></td></tr>
+<tr class="separator:ae298a2716592e95ef6adb1bf10a75bcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4a1eb011f37574e93723486901aeb8a"><td class="memItemLeft" align="right" valign="top">EulerAngleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ae4a1eb011f37574e93723486901aeb8a">euler_rc_fil</a></td></tr>
+<tr class="separator:ae4a1eb011f37574e93723486901aeb8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20aa057cc8a0c7de9d7ed5ed3b9041eb"><td class="memItemLeft" align="right" valign="top">EulerAngleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a20aa057cc8a0c7de9d7ed5ed3b9041eb">euler_rc_y_pre</a> [4]</td></tr>
+<tr class="separator:a20aa057cc8a0c7de9d7ed5ed3b9041eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a531c2103eb9734fc90d534f8fb00d9e4"><td class="memItemLeft" align="right" valign="top">EulerAngleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a531c2103eb9734fc90d534f8fb00d9e4">euler_rc_x_pre</a> [4]</td></tr>
+<tr class="separator:a531c2103eb9734fc90d534f8fb00d9e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9c37b2be6f3ea243bd7f85e4e71b27c"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ae9c37b2be6f3ea243bd7f85e4e71b27c">acc</a></td></tr>
+<tr class="separator:ae9c37b2be6f3ea243bd7f85e4e71b27c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90f64a8557e0422c95cecf80d44d0562"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a90f64a8557e0422c95cecf80d44d0562">gyro</a></td></tr>
+<tr class="separator:a90f64a8557e0422c95cecf80d44d0562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada06cccdb7b682d9f2b8a756cdf07a65"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ada06cccdb7b682d9f2b8a756cdf07a65">mag</a></td></tr>
+<tr class="separator:ada06cccdb7b682d9f2b8a756cdf07a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8edfed2456fd4587a59036be56ba4b8"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aa8edfed2456fd4587a59036be56ba4b8">acc_fil_int</a></td></tr>
+<tr class="separator:aa8edfed2456fd4587a59036be56ba4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46ec814c0566c56d8d2bd4ff156a7494"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a46ec814c0566c56d8d2bd4ff156a7494">gyro_fil_int</a></td></tr>
+<tr class="separator:a46ec814c0566c56d8d2bd4ff156a7494"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa395aedae7b3f685e92a3b24f5de610f"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aa395aedae7b3f685e92a3b24f5de610f">mag_fil_int</a></td></tr>
+<tr class="separator:aa395aedae7b3f685e92a3b24f5de610f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84bce52a8914c46df1943239b5636fe5"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef_Float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a84bce52a8914c46df1943239b5636fe5">acc_fil</a></td></tr>
+<tr class="separator:a84bce52a8914c46df1943239b5636fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a069dbbc6554a885c5dc4533ce7188176"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef_Float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a069dbbc6554a885c5dc4533ce7188176">acc_y_pre</a> [4]</td></tr>
+<tr class="separator:a069dbbc6554a885c5dc4533ce7188176"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b208e1e4a8188da357a8541ea33061a"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef_Float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a5b208e1e4a8188da357a8541ea33061a">acc_x_pre</a> [4]</td></tr>
+<tr class="separator:a5b208e1e4a8188da357a8541ea33061a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a131150c96c13708b01d5b8cedebad3c8"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef_Float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a131150c96c13708b01d5b8cedebad3c8">acc_ahrs_FIFO</a> [FIFO_Order]</td></tr>
+<tr class="separator:a131150c96c13708b01d5b8cedebad3c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1135730ed5704a0c4d9dbb1bfe8b3f1"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef_Float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#af1135730ed5704a0c4d9dbb1bfe8b3f1">acc_FIFO</a> [FIFO_Order]</td></tr>
+<tr class="separator:af1135730ed5704a0c4d9dbb1bfe8b3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a713cfaf0babd052ae82ae9a88e585ca6"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef_Float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a713cfaf0babd052ae82ae9a88e585ca6">acc_ahrs</a></td></tr>
+<tr class="separator:a713cfaf0babd052ae82ae9a88e585ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a822b65540a9e4df383f1a541596f2560"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef_Float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a822b65540a9e4df383f1a541596f2560">gyro_fil</a></td></tr>
+<tr class="separator:a822b65540a9e4df383f1a541596f2560"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27d5365eff4b083d03661410e2dcbb77"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef_Float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a27d5365eff4b083d03661410e2dcbb77">gyro_y_pre</a> [4]</td></tr>
+<tr class="separator:a27d5365eff4b083d03661410e2dcbb77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64dba1855c041525ca888bf5ca4eb295"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef_Float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a64dba1855c041525ca888bf5ca4eb295">gyro_x_pre</a> [4]</td></tr>
+<tr class="separator:a64dba1855c041525ca888bf5ca4eb295"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a728cf89a291ddcae12f107ae9dd04a21"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef_Float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a728cf89a291ddcae12f107ae9dd04a21">gyro_ahrs_FIFO</a> [FIFO_Order]</td></tr>
+<tr class="separator:a728cf89a291ddcae12f107ae9dd04a21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af145f094139a6e8dd32defcbf2e42660"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef_Float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#af145f094139a6e8dd32defcbf2e42660">gyro_FIFO</a> [FIFO_Order]</td></tr>
+<tr class="separator:af145f094139a6e8dd32defcbf2e42660"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adab0466a1bf34f199b01061a09aee0ae"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef_Float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#adab0466a1bf34f199b01061a09aee0ae">gyro_ahrs</a></td></tr>
+<tr class="separator:adab0466a1bf34f199b01061a09aee0ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4de662772f9c55bc309642afb2999e6"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef_Float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ad4de662772f9c55bc309642afb2999e6">mag_fil</a></td></tr>
+<tr class="separator:ad4de662772f9c55bc309642afb2999e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf9d61c07fff655f0c7ec960145c4f0a"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#adf9d61c07fff655f0c7ec960145c4f0a">acc_off_calc</a></td></tr>
+<tr class="separator:adf9d61c07fff655f0c7ec960145c4f0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef200aba645f9807b7fa1614afaf1921"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aef200aba645f9807b7fa1614afaf1921">gyro_off_calc</a></td></tr>
+<tr class="separator:aef200aba645f9807b7fa1614afaf1921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7904b6720cf83cb50cf6f6dc7f484b14"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a7904b6720cf83cb50cf6f6dc7f484b14">acc_offset</a></td></tr>
+<tr class="separator:a7904b6720cf83cb50cf6f6dc7f484b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e0965abfe7e990ec63fe6ece09110bb"><td class="memItemLeft" align="right" valign="top">AxesRaw_TypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a5e0965abfe7e990ec63fe6ece09110bb">gyro_offset</a></td></tr>
+<tr class="separator:a5e0965abfe7e990ec63fe6ece09110bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35aece3fe385a011624b3055473aa07d"><td class="memItemLeft" align="right" valign="top">EulerAngleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a35aece3fe385a011624b3055473aa07d">euler_ahrs_offset</a></td></tr>
+<tr class="separator:a35aece3fe385a011624b3055473aa07d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a034490ddb6b4aa42a6683873cf6202ee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a034490ddb6b4aa42a6683873cf6202ee">sensor_init_cali</a> = 0</td></tr>
+<tr class="separator:a034490ddb6b4aa42a6683873cf6202ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a600b36ac0e45eda1512161035b926d54"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a600b36ac0e45eda1512161035b926d54">sensor_init_cali_count</a> = 0</td></tr>
+<tr class="separator:a600b36ac0e45eda1512161035b926d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9bc846516dfb462d4fbf7e7d88102c3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#af9bc846516dfb462d4fbf7e7d88102c3">gyro_cali_count</a> = 0</td></tr>
+<tr class="separator:af9bc846516dfb462d4fbf7e7d88102c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b4fe83fb2284a81e63e0de86e8b9673"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main__davide__debug_8c.html#struct_i_i_r___coeff">IIR_Coeff</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a4b4fe83fb2284a81e63e0de86e8b9673">gyro_fil_coeff</a> = {0.94280904158206336, -0.33333333333333343, 0.09763107293781749 , 0.19526214587563498 , 0.09763107293781749 }</td></tr>
+<tr class="separator:a4b4fe83fb2284a81e63e0de86e8b9673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a781ab7294550d3f3258639561b4a0633"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main__davide__debug_8c.html#struct_attitude___degree">Attitude_Degree</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a781ab7294550d3f3258639561b4a0633">Fly</a></td></tr>
+<tr class="separator:a781ab7294550d3f3258639561b4a0633"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a7dbfd1e93ade4067f023b65aa7ffc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main__davide__debug_8c.html#struct_attitude___degree">Attitude_Degree</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a1a7dbfd1e93ade4067f023b65aa7ffc0">Fly_offset</a></td></tr>
+<tr class="separator:a1a7dbfd1e93ade4067f023b65aa7ffc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e658ff79022246f801693c1d2bfc8f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="main__davide__debug_8c.html#struct_attitude___degree">Attitude_Degree</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a7e658ff79022246f801693c1d2bfc8f6">Fly_origin</a></td></tr>
+<tr class="separator:a7e658ff79022246f801693c1d2bfc8f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a992e23e756d58d57427595e7ed2a127f"><td class="memItemLeft" align="right" valign="top">Gyro_Rad&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a992e23e756d58d57427595e7ed2a127f">gyro_rad</a></td></tr>
+<tr class="separator:a992e23e756d58d57427595e7ed2a127f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae22851f97ec70c2ede1114af4f4c7d6c"><td class="memItemLeft" align="right" valign="top">Gyro_Rad&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ae22851f97ec70c2ede1114af4f4c7d6c">gyro_degree</a></td></tr>
+<tr class="separator:ae22851f97ec70c2ede1114af4f4c7d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5903550b472795f9fe4f5e1d69b99b26"><td class="memItemLeft" align="right" valign="top">Gyro_Rad&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a5903550b472795f9fe4f5e1d69b99b26">gyro_cali_degree</a></td></tr>
+<tr class="separator:a5903550b472795f9fe4f5e1d69b99b26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b1933e10934d45eb1c11eaa867a21b8"><td class="memItemLeft" align="right" valign="top">MotorControlTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a3b1933e10934d45eb1c11eaa867a21b8">motor_pwm</a></td></tr>
+<tr class="separator:a3b1933e10934d45eb1c11eaa867a21b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8b6f15b372c722be08179e285658d86"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#aa8b6f15b372c722be08179e285658d86">count1</a> = 0</td></tr>
+<tr class="separator:aa8b6f15b372c722be08179e285658d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a352f103b4480374c5e8ae3e132d4e958"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a352f103b4480374c5e8ae3e132d4e958">count2</a> = 0</td></tr>
+<tr class="separator:a352f103b4480374c5e8ae3e132d4e958"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a756574870017e0a09196c2abf1288d4e"><td class="memItemLeft" align="right" valign="top">AHRS_State_TypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a756574870017e0a09196c2abf1288d4e">ahrs</a></td></tr>
+<tr class="separator:a756574870017e0a09196c2abf1288d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ecfa8a7ade2a7b2f7f847e7e22d1036"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a3ecfa8a7ade2a7b2f7f847e7e22d1036">pre</a></td></tr>
+<tr class="separator:a3ecfa8a7ade2a7b2f7f847e7e22d1036"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cd3305fd6017834e5ec70f0f581a2a0"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a3cd3305fd6017834e5ec70f0f581a2a0">VBAT_Sense</a></td></tr>
+<tr class="separator:a3cd3305fd6017834e5ec70f0f581a2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf58c4ea1cc64b2a020319e64031c008"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#abf58c4ea1cc64b2a020319e64031c008">VBAT</a> = 0</td></tr>
+<tr class="separator:abf58c4ea1cc64b2a020319e64031c008"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38a5fe20cecb7c19497aa7434b5bfd14"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a38a5fe20cecb7c19497aa7434b5bfd14">tmp_lis2mdl</a></td></tr>
+<tr class="separator:a38a5fe20cecb7c19497aa7434b5bfd14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ecc033d744af53a60edb9395b81a506"><td class="memItemLeft" align="right" valign="top">SensorAxes_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#a0ecc033d744af53a60edb9395b81a506">tmp_mag</a></td></tr>
+<tr class="separator:a0ecc033d744af53a60edb9395b81a506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/><h2 class="groupheader">クラス詳解</h2>
+<a name="struct_attitude___degree" id="struct_attitude___degree"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#struct_attitude___degree">&#9670;&nbsp;</a></span>Attitude_Degree</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct Attitude_Degree</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00114">114</a> 行目に定義があります。</p>
+</div><div class="dynheader">
+Attitude_Degree 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_attitude___degree__coll__graph.png" border="0" usemap="#_attitude___degree_coll__map" alt="Collaboration graph"/></div>
+<map name="_attitude___degree_coll__map" id="_attitude___degree_coll__map">
+</map>
+</div>
+<table class="fieldtable">
+<tr><th colspan="3">クラスメンバ</th></tr>
+<tr><td class="fieldtype">
+<a id="a8d45cf605f2b5b0278be9eebf37e95a2"></a>int16_t</td>
+<td class="fieldname">
+X_Degree</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a17f36ce71c5949fa50641e0c161dc48e"></a>int16_t</td>
+<td class="fieldname">
+Y_Degree</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="acdad948b3fa61172159b4c76b1a21ecd"></a>int16_t</td>
+<td class="fieldname">
+Z_Degree</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="struct_i_i_r___coeff" id="struct_i_i_r___coeff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#struct_i_i_r___coeff">&#9670;&nbsp;</a></span>IIR_Coeff</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct IIR_Coeff</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00121">121</a> 行目に定義があります。</p>
+</div><div class="dynheader">
+IIR_Coeff 連携図</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_i_i_r___coeff__coll__graph.png" border="0" usemap="#_i_i_r___coeff_coll__map" alt="Collaboration graph"/></div>
+<map name="_i_i_r___coeff_coll__map" id="_i_i_r___coeff_coll__map">
+</map>
+</div>
+<table class="fieldtable">
+<tr><th colspan="3">クラスメンバ</th></tr>
+<tr><td class="fieldtype">
+<a id="a38cd0bf15eedcc9abefc375e3ee1d256"></a>float</td>
+<td class="fieldname">
+a1</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a114eff5f5b7a86b456cfa1ab2f51324f"></a>float</td>
+<td class="fieldname">
+a2</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="aabf99ab2cdc791940d4d6b53c4902f95"></a>float</td>
+<td class="fieldname">
+b0</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a13d764a424695be1c362e2812400be76"></a>float</td>
+<td class="fieldname">
+b1</td>
+<td class="fielddoc">
+</td></tr>
+<tr><td class="fieldtype">
+<a id="a897c2b141f46bc27accd3baf31bbdd45"></a>float</td>
+<td class="fieldname">
+b2</td>
+<td class="fielddoc">
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="abb2655609bdbb1c373141219ee4f76d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb2655609bdbb1c373141219ee4f76d2">&#9670;&nbsp;</a></span>enableAllSensors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void enableAllSensors </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable all sensors </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>戻り値</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00947">947</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="main_8c_source.html#l00069">LIS2MDL_M_0_handle</a>, <a class="el" href="main_8c_source.html#l00070">LPS22HB_P_0_handle</a>, <a class="el" href="main_8c_source.html#l00068">LSM6DSL_G_0_handle</a>, <a class="el" href="main_8c_source.html#l00067">LSM6DSL_X_0_handle</a>.</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c_abb2655609bdbb1c373141219ee4f76d2_icgraph.png" border="0" usemap="#main_8c_abb2655609bdbb1c373141219ee4f76d2_icgraph" alt=""/></div>
+<map name="main_8c_abb2655609bdbb1c373141219ee4f76d2_icgraph" id="main_8c_abb2655609bdbb1c373141219ee4f76d2_icgraph">
+<area shape="rect" id="node3" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="176,5,227,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8a3b0ad512a6e6c6157440b68d395eac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a3b0ad512a6e6c6157440b68d395eac">&#9670;&nbsp;</a></span>HAL_TIM_PeriodElapsedCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HAL_TIM_PeriodElapsedCallback </td>
+          <td>(</td>
+          <td class="paramtype">TIM_HandleTypeDef *&#160;</td>
+          <td class="paramname"><em>htim</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00731">731</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="main_8c_source.html#l00123">IIR_Coeff::a1</a>, <a class="el" href="main_8c_source.html#l00123">IIR_Coeff::a2</a>, <a class="el" href="main_8c_source.html#l00105">acc</a>, <a class="el" href="main_8c_source.html#l00106">acc_ahrs_FIFO</a>, <a class="el" href="main_8c_source.html#l00106">acc_FIFO</a>, <a class="el" href="main_8c_source.html#l00109">acc_off_calc</a>, <a class="el" href="main_8c_source.html#l00109">acc_offset</a>, <a class="el" href="main_8c_source.html#l00146">ahrs</a>, <a class="el" href="main_8c_source.html#l00123">IIR_Coeff::b0</a>, <a class="el" href="main_8c_source.html#l00123">IIR_Coeff::b1</a>, <a class="el" href="main_8c_source.html#l00123">IIR_Coeff::b2</a>, <a class="el" href="main_8c_source.html#l00104">euler_ahrs</a>, <a class="el" href="main_8c_source.html#l00104">euler_rc</a>, <a class="el" href="main_8c_source.html#l00104">euler_rc_fil</a>, <a class="el" href="flight__control_8c_source.html#l00193">FlightControlPID_innerLoop()</a>, <a class="el" href="rc_8c_source.html#l00073">gTHR</a>, <a class="el" href="main_8c_source.html#l00105">gyro</a>, <a class="el" href="main_8c_source.html#l00107">gyro_ahrs_FIFO</a>, <a class="el" href="main_8c_source.html#l00107">gyro_FIFO</a>, <a class="el" href="main_8c_source.html#l00107">gyro_fil</a>, <a class="el" href="main_8c_source.html#l00140">gyro_fil_coeff</a>, <a class="el" href="main_8c_source.html#l00109">gyro_off_calc</a>, <a class="el" href="main_8c_source.html#l00109">gyro_offset</a>, <a class="el" href="main_8c_source.html#l00143">gyro_rad</a>, <a class="el" href="main_8c_source.html#l00107">gyro_x_pre</a>, <a class="el" href="main_8c_source.html#l00107">gyro_y_pre</a>, <a class="el" href="main_8c_source.html#l00069">LIS2MDL_M_0_handle</a>, <a class="el" href="main_8c_source.html#l00070">LPS22HB_P_0_handle</a>, <a class="el" href="main_8c_source.html#l00068">LSM6DSL_G_0_handle</a>, <a class="el" href="main_8c_source.html#l00067">LSM6DSL_X_0_handle</a>, <a class="el" href="main_8c_source.html#l00105">mag</a>, <a class="el" href="main_8c_source.html#l00144">motor_pwm</a>, <a class="el" href="main_8c_source.html#l00103">pid</a>, <a class="el" href="main_8c_source.html#l00147">pre</a>, <a class="el" href="main_8c_source.html#l00079">rc_cal_cnt</a>, <a class="el" href="main_8c_source.html#l00077">rc_cal_flag</a>, <a class="el" href="rc_8c_source.html#l00068">rc_connection_flag</a>, <a class="el" href="main_8c_source.html#l00078">rc_enable_motor</a>, <a class="el" href="sensor__data_8c_source.html#l00065">ReadSensorRawData()</a>, <a class="el" href="main_8c_source.html#l00111">sensor_init_cali</a>, <a class="el" href="main_8c_source.html#l00111">sensor_init_cali_count</a>, <a class="el" href="motor_8c_source.html#l00017">set_motor_pwm()</a>, <a class="el" href="motor_8c_source.html#l00049">set_motor_pwm_zero()</a>, <a class="el" href="main_8c_source.html#l00083">tim9_cnt</a>, <a class="el" href="main_8c_source.html#l00083">tim9_cnt2</a>, <a class="el" href="main_8c_source.html#l00083">tim9_event_flag</a> (計46項目).</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c_a8a3b0ad512a6e6c6157440b68d395eac_cgraph.png" border="0" usemap="#main_8c_a8a3b0ad512a6e6c6157440b68d395eac_cgraph" alt=""/></div>
+<map name="main_8c_a8a3b0ad512a6e6c6157440b68d395eac_cgraph" id="main_8c_a8a3b0ad512a6e6c6157440b68d395eac_cgraph">
+<area shape="rect" id="node3" href="flight__control_8c.html#a4a1505ec3a4cd5dbb493b242a5885910" title="FlightControlPID_innerLoop" alt="" coords="269,5,448,32"/>
+<area shape="rect" id="node5" href="sensor__data_8c.html#ab5052c27f9ae9b1376100c4dc8698bb5" title="ReadSensorRawData" alt="" coords="286,56,431,83"/>
+<area shape="rect" id="node7" href="motor_8c.html#a85dda736d88f448a1ceefddeeb5bc344" title="set_motor_pwm" alt="" coords="301,107,416,133"/>
+<area shape="rect" id="node9" href="motor_8c.html#a87d3b28dfb596c0bc0864eeed9e55250" title="set_motor_pwm_zero" alt="" coords="285,157,432,184"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acd7834e88f9fa4b666b914e71fd660dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd7834e88f9fa4b666b914e71fd660dc">&#9670;&nbsp;</a></span>initializeAllSensors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void initializeAllSensors </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize all sensors </p>
+<dl class="params"><dt>引数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>戻り値</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00911">911</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="main_8c_source.html#l00069">LIS2MDL_M_0_handle</a>, <a class="el" href="main_8c_source.html#l00070">LPS22HB_P_0_handle</a>, <a class="el" href="main_8c_source.html#l00068">LSM6DSL_G_0_handle</a>, <a class="el" href="main_8c_source.html#l00067">LSM6DSL_X_0_handle</a>.</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c_acd7834e88f9fa4b666b914e71fd660dc_icgraph.png" border="0" usemap="#main_8c_acd7834e88f9fa4b666b914e71fd660dc_icgraph" alt=""/></div>
+<map name="main_8c_acd7834e88f9fa4b666b914e71fd660dc_icgraph" id="main_8c_acd7834e88f9fa4b666b914e71fd660dc_icgraph">
+<area shape="rect" id="node3" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="187,5,237,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a840291bc02cba5474a4cb46a9b9566fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a840291bc02cba5474a4cb46a9b9566fe">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00158">158</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="main_8c_source.html#l00106">acc_ahrs</a>, <a class="el" href="main_8c_source.html#l00106">acc_ahrs_FIFO</a>, <a class="el" href="main_8c_source.html#l00106">acc_fil</a>, <a class="el" href="main_8c_source.html#l00105">acc_fil_int</a>, <a class="el" href="main_8c_source.html#l00109">acc_off_calc</a>, <a class="el" href="main_8c_source.html#l00109">acc_offset</a>, <a class="el" href="main_8c_source.html#l00106">acc_x_pre</a>, <a class="el" href="main_8c_source.html#l00106">acc_y_pre</a>, <a class="el" href="main_8c_source.html#l00146">ahrs</a>, <a class="el" href="ahrs_8c_source.html#l00025">ahrs_fusion_ag()</a>, <a class="el" href="stm32f4xx__nucleo_8c_source.html#l00137">BSP_LED_Init()</a>, <a class="el" href="stm32f4xx__nucleo_8c_source.html#l00175">BSP_LED_Off()</a>, <a class="el" href="stm32f4xx__nucleo_8c_source.html#l00163">BSP_LED_On()</a>, <a class="el" href="stm32f4xx__nucleo_8c_source.html#l00187">BSP_LED_Toggle()</a>, <a class="el" href="main_8c_source.html#l00081">ch</a>, <a class="el" href="main_8c_source.html#l00081">ch_flag</a>, <a class="el" href="timer_8c_source.html#l00026">ClearTimer()</a>, <a class="el" href="main_8c_source.html#l00145">count1</a>, <a class="el" href="main_8c_source.html#l00145">count2</a>, <a class="el" href="main_8c_source.html#l00947">enableAllSensors()</a>, <a class="el" href="main_8c_source.html#l00104">euler_ahrs</a>, <a class="el" href="main_8c_source.html#l00110">euler_ahrs_offset</a>, <a class="el" href="main_8c_source.html#l00104">euler_rc</a>, <a class="el" href="main_8c_source.html#l00104">euler_rc_fil</a>, <a class="el" href="main_8c_source.html#l00104">euler_rc_x_pre</a>, <a class="el" href="main_8c_source.html#l00104">euler_rc_y_pre</a>, <a class="el" href="flight__control_8c_source.html#l00154">FlightControlPID_OuterLoop()</a>, <a class="el" href="main_8c_source.html#l00142">Fly_origin</a>, <a class="el" href="rc_8c_source.html#l00073">gAIL</a>, <a class="el" href="rc_8c_source.html#l00073">gELE</a>, <a class="el" href="rc_8c_source.html#l00214">GetTargetEulerAngle()</a>, <a class="el" href="rc_8c_source.html#l00073">gRUD</a>, <a class="el" href="rc_8c_source.html#l00073">gTHR</a>, <a class="el" href="main_8c_source.html#l00107">gyro_ahrs</a>, <a class="el" href="main_8c_source.html#l00107">gyro_ahrs_FIFO</a>, <a class="el" href="main_8c_source.html#l00107">gyro_fil</a>, <a class="el" href="main_8c_source.html#l00105">gyro_fil_int</a>, <a class="el" href="main_8c_source.html#l00109">gyro_off_calc</a>, <a class="el" href="main_8c_source.html#l00109">gyro_offset</a>, <a class="el" href="main_8c_source.html#l00107">gyro_x_pre</a>, <a class="el" href="main_8c_source.html#l00107">gyro_y_pre</a>, <a class="el" href="main_8c_source.html#l00061">htim2</a>, <a class="el" href="main_8c_source.html#l00062">htim4</a>, <a class="el" href="main_8c_source.html#l00063">htim9</a>, <a class="el" href="rc_8c_source.html#l00083">init_remote_control()</a>, <a class="el" href="main_8c_source.html#l00911">initializeAllSensors()</a>, <a class="el" href="timer_8c_source.html#l00040">isTimerEventExist()</a>, <a class="el" href="main_8c_source.html#l00069">LIS2MDL_M_0_handle</a>, <a class="el" href="main_8c_source.html#l00068">LSM6DSL_G_0_handle</a>, <a class="el" href="main_8c_source.html#l00067">LSM6DSL_X_0_handle</a>, <a class="el" href="main_8c_source.html#l00108">mag_fil</a>, <a class="el" href="main_8c_source.html#l00144">motor_pwm</a>, <a class="el" href="main_8c_source.html#l00511">MX_ADC1_Init()</a>, <a class="el" href="main_8c_source.html#l00707">MX_GPIO_Init()</a>, <a class="el" href="main_8c_source.html#l00581">MX_TIM2_Init()</a>, <a class="el" href="main_8c_source.html#l00619">MX_TIM4_Init()</a>, <a class="el" href="main_8c_source.html#l00665">MX_TIM9_Init()</a>, <a class="el" href="main_8c_source.html#l00683">MX_USART1_UART_Init()</a>, <a class="el" href="main_8c_source.html#l00103">pid</a>, <a class="el" href="flight__control_8c_source.html#l00021">PIDControlInit()</a>, <a class="el" href="quaternion_8c_source.html#l00078">QuaternionToEuler()</a>, <a class="el" href="rc_8c_source.html#l00068">rc_connection_flag</a>, <a class="el" href="main_8c_source.html#l00078">rc_enable_motor</a>, <a class="el" href="motor_8c_source.html#l00049">set_motor_pwm_zero()</a>, <a class="el" href="timer_8c_source.html#l00007">SetupTimer()</a>, <a class="el" href="timer_8c_source.html#l00015">StartTimer()</a>, <a class="el" href="main_8c_source.html#l00462">SystemClock_Config()</a>, <a class="el" href="timer_8c_source.html#l00005">tim</a>, <a class="el" href="main_8c_source.html#l00083">tim9_event_flag</a>, <a class="el" href="main_8c_source.html#l00116">Attitude_Degree::X_Degree</a>, <a class="el" href="main_8c_source.html#l00117">Attitude_Degree::Y_Degree</a>, <a class="el" href="main_8c_source.html#l00118">Attitude_Degree::Z_Degree</a> (計72項目).</p>
+<div class="dynheader">
+呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph.png" border="0" usemap="#main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph" alt=""/></div>
+<map name="main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph" id="main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph">
+<area shape="rect" id="node3" href="ahrs_8c.html#ab9963d4d656aa4ceb5623c31546875b0" title="ahrs_fusion_ag" alt="" coords="141,5,251,32"/>
+<area shape="rect" id="node7" href="group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___private___functions.html#gab58a4f16a476a53653c5c400e3bed158" title="Configures LED GPIO. " alt="" coords="143,56,249,83"/>
+<area shape="rect" id="node9" href="group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___private___functions.html#gaef268680154ca15c45066d64d41f9467" title="Turns selected LED Off. " alt="" coords="341,81,445,108"/>
+<area shape="rect" id="node12" href="group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___private___functions.html#gaee9c16b16384834c69efabf58f423d6f" title="Turns selected LED On. " alt="" coords="143,157,249,184"/>
+<area shape="rect" id="node14" href="group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___private___functions.html#ga1b9eabba7d498f41d6f16587ec0f9732" title="Toggles the selected LED. " alt="" coords="133,208,259,235"/>
+<area shape="rect" id="node16" href="timer_8c.html#aadad043a8f3c430133b73ee15da0034d" title="ClearTimer" alt="" coords="154,259,238,285"/>
+<area shape="rect" id="node18" href="main_8c.html#abb2655609bdbb1c373141219ee4f76d2" title="Enable all sensors " alt="" coords="135,309,257,336"/>
+<area shape="rect" id="node20" href="flight__control_8c.html#a202e9d4ff9a1eb5869a052dc7109cad3" title="FlightControlPID_OuterLoop" alt="" coords="105,360,287,387"/>
+<area shape="rect" id="node22" href="rc_8c.html#a6b44b8f661cbff6ee4d065f4fa8aea66" title="GetTargetEulerAngle" alt="" coords="125,411,267,437"/>
+<area shape="rect" id="node24" href="rc_8c.html#a56d6d7d99f55b37375234a664e127fa7" title="init_remote_control" alt="" coords="130,461,262,488"/>
+<area shape="rect" id="node30" href="main_8c.html#acd7834e88f9fa4b666b914e71fd660dc" title="Initialize all sensors " alt="" coords="130,512,262,539"/>
+<area shape="rect" id="node32" href="timer_8c.html#ad553a6c0a2cd94b68d3d3eeefe68139d" title="isTimerEventExist" alt="" coords="133,563,259,589"/>
+<area shape="rect" id="node34" href="main_8c.html#acccd58aa70215a6b184ad242312ffd0c" title="MX_ADC1_Init" alt="" coords="143,613,249,640"/>
+<area shape="rect" id="node36" href="main_8c.html#ac724e431d2af879252de35615be2bdea" title="MX_GPIO_Init" alt="" coords="145,664,247,691"/>
+<area shape="rect" id="node38" href="main_8c.html#a4b8ff887fd3fdf26605e35927e4ff202" title="MX_TIM2_Init" alt="" coords="147,715,245,741"/>
+<area shape="rect" id="node40" href="main_8c.html#aef1e0b132b1af1c923cc420a57180c67" title="MX_TIM4_Init" alt="" coords="147,765,245,792"/>
+<area shape="rect" id="node42" href="main_8c.html#a31471cefed9f6de5861a05d61de7e302" title="MX_TIM9_Init" alt="" coords="147,816,245,843"/>
+<area shape="rect" id="node44" href="main_8c.html#a57d1167735baafab8e3288526c424929" title="MX_USART1_UART_Init" alt="" coords="115,867,277,893"/>
+<area shape="rect" id="node46" href="flight__control_8c.html#a5c2b95357837dab4df6058436a30c77f" title="PIDControlInit" alt="" coords="145,917,247,944"/>
+<area shape="rect" id="node48" href="quaternion_8c.html#a6b4175cd9d5f295e21065f3f34362c16" title="QuaternionToEuler" alt="" coords="131,968,261,995"/>
+<area shape="rect" id="node50" href="motor_8c.html#a87d3b28dfb596c0bc0864eeed9e55250" title="set_motor_pwm_zero" alt="" coords="123,1019,269,1045"/>
+<area shape="rect" id="node52" href="timer_8c.html#a7fb5d06b4ab992c65fcbb0d00aacceef" title="SetupTimer" alt="" coords="152,1069,240,1096"/>
+<area shape="rect" id="node54" href="timer_8c.html#aa6ff50c160cefabef39c4d64d289fadb" title="StartTimer" alt="" coords="155,1120,237,1147"/>
+<area shape="rect" id="node56" href="main_8c.html#a70af21c671abfcc773614a9a4f63d920" title="SystemClock_Config" alt="" coords="125,1171,267,1197"/>
+<area shape="rect" id="node5" href="basic__math_8c.html#a5e5346796220b271615a52428f6ec6ca" title="invSqrt" alt="" coords="363,5,424,32"/>
+<area shape="rect" id="node26" href="rc_8c.html#a0339133286d91ab0e815a96a8ab66a31" title="init_rc_variables" alt="" coords="336,436,451,463"/>
+<area shape="rect" id="node28" href="rc_8c.html#ab1cf0a50b9ef73e5245bc66fe6371501" title="init_queue" alt="" coords="353,487,434,513"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acccd58aa70215a6b184ad242312ffd0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acccd58aa70215a6b184ad242312ffd0c">&#9670;&nbsp;</a></span>MX_ADC1_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MX_ADC1_Init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)</p>
+<p>Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.</p>
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00511">511</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="main_8c_source.html#l00056">hadc1</a>.</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c_acccd58aa70215a6b184ad242312ffd0c_icgraph.png" border="0" usemap="#main_8c_acccd58aa70215a6b184ad242312ffd0c_icgraph" alt=""/></div>
+<map name="main_8c_acccd58aa70215a6b184ad242312ffd0c_icgraph" id="main_8c_acccd58aa70215a6b184ad242312ffd0c_icgraph">
+<area shape="rect" id="node3" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="160,5,211,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac724e431d2af879252de35615be2bdea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac724e431d2af879252de35615be2bdea">&#9670;&nbsp;</a></span>MX_GPIO_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MX_GPIO_Init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Configure pins as Analog Input Output EVENT_OUT EXTI Free pins are configured automatically as Analog (this feature is enabled through the Code Generation settings) </p>
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00707">707</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c_ac724e431d2af879252de35615be2bdea_icgraph.png" border="0" usemap="#main_8c_ac724e431d2af879252de35615be2bdea_icgraph" alt=""/></div>
+<map name="main_8c_ac724e431d2af879252de35615be2bdea_icgraph" id="main_8c_ac724e431d2af879252de35615be2bdea_icgraph">
+<area shape="rect" id="node3" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="157,5,208,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af81398f9775695df0b172367651ca3e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af81398f9775695df0b172367651ca3e6">&#9670;&nbsp;</a></span>MX_SPI1_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MX_SPI1_Init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00541">541</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="main_8c_source.html#l00058">hspi1</a>.</p>
+
+</div>
+</div>
+<a id="aea85daa666c03d85fd59edef711ebb08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea85daa666c03d85fd59edef711ebb08">&#9670;&nbsp;</a></span>MX_SPI2_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MX_SPI2_Init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00561">561</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="main_8c_source.html#l00059">hspi2</a>.</p>
+
+</div>
+</div>
+<a id="a4b8ff887fd3fdf26605e35927e4ff202"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b8ff887fd3fdf26605e35927e4ff202">&#9670;&nbsp;</a></span>MX_TIM2_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MX_TIM2_Init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00581">581</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="main_8c_source.html#l00061">htim2</a>.</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c_a4b8ff887fd3fdf26605e35927e4ff202_icgraph.png" border="0" usemap="#main_8c_a4b8ff887fd3fdf26605e35927e4ff202_icgraph" alt=""/></div>
+<map name="main_8c_a4b8ff887fd3fdf26605e35927e4ff202_icgraph" id="main_8c_a4b8ff887fd3fdf26605e35927e4ff202_icgraph">
+<area shape="rect" id="node3" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="152,5,203,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aef1e0b132b1af1c923cc420a57180c67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef1e0b132b1af1c923cc420a57180c67">&#9670;&nbsp;</a></span>MX_TIM4_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MX_TIM4_Init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00619">619</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="main_8c_source.html#l00062">htim4</a>.</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c_aef1e0b132b1af1c923cc420a57180c67_icgraph.png" border="0" usemap="#main_8c_aef1e0b132b1af1c923cc420a57180c67_icgraph" alt=""/></div>
+<map name="main_8c_aef1e0b132b1af1c923cc420a57180c67_icgraph" id="main_8c_aef1e0b132b1af1c923cc420a57180c67_icgraph">
+<area shape="rect" id="node3" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="152,5,203,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a31471cefed9f6de5861a05d61de7e302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31471cefed9f6de5861a05d61de7e302">&#9670;&nbsp;</a></span>MX_TIM9_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MX_TIM9_Init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00665">665</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="main_8c_source.html#l00063">htim9</a>.</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c_a31471cefed9f6de5861a05d61de7e302_icgraph.png" border="0" usemap="#main_8c_a31471cefed9f6de5861a05d61de7e302_icgraph" alt=""/></div>
+<map name="main_8c_a31471cefed9f6de5861a05d61de7e302_icgraph" id="main_8c_a31471cefed9f6de5861a05d61de7e302_icgraph">
+<area shape="rect" id="node3" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="152,5,203,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a57d1167735baafab8e3288526c424929"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57d1167735baafab8e3288526c424929">&#9670;&nbsp;</a></span>MX_USART1_UART_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MX_USART1_UART_Init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00683">683</a> 行目に定義があります。</p>
+
+<p class="reference">参照先 <a class="el" href="main_8c_source.html#l00065">huart1</a>.</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c_a57d1167735baafab8e3288526c424929_icgraph.png" border="0" usemap="#main_8c_a57d1167735baafab8e3288526c424929_icgraph" alt=""/></div>
+<map name="main_8c_a57d1167735baafab8e3288526c424929_icgraph" id="main_8c_a57d1167735baafab8e3288526c424929_icgraph">
+<area shape="rect" id="node3" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="216,5,267,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a70af21c671abfcc773614a9a4f63d920"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70af21c671abfcc773614a9a4f63d920">&#9670;&nbsp;</a></span>SystemClock_Config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SystemClock_Config </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>System Clock Configuration </p>
+<p>Configure the main internal regulator output voltage</p>
+<p>Initializes the CPU, AHB and APB busses clocks</p>
+<p>Initializes the CPU, AHB and APB busses clocks</p>
+<p>Configure the Systick interrupt time</p>
+<p>Configure the Systick</p>
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00462">462</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+<div class="dynheader">
+被呼び出し関係図:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8c_a70af21c671abfcc773614a9a4f63d920_icgraph.png" border="0" usemap="#main_8c_a70af21c671abfcc773614a9a4f63d920_icgraph" alt=""/></div>
+<map name="main_8c_a70af21c671abfcc773614a9a4f63d920_icgraph" id="main_8c_a70af21c671abfcc773614a9a4f63d920_icgraph">
+<area shape="rect" id="node3" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="197,5,248,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">変数詳解</h2>
+<a id="ae9c37b2be6f3ea243bd7f85e4e71b27c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9c37b2be6f3ea243bd7f85e4e71b27c">&#9670;&nbsp;</a></span>acc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef acc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00105">105</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="ahrs_8c_source.html#l00025">ahrs_fusion_ag()</a>, <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="sensor__data_8c_source.html#l00065">ReadSensorRawData()</a>.</p>
+
+</div>
+</div>
+<a id="a713cfaf0babd052ae82ae9a88e585ca6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a713cfaf0babd052ae82ae9a88e585ca6">&#9670;&nbsp;</a></span>acc_ahrs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef_Float acc_ahrs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00106">106</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a131150c96c13708b01d5b8cedebad3c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a131150c96c13708b01d5b8cedebad3c8">&#9670;&nbsp;</a></span>acc_ahrs_FIFO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef_Float acc_ahrs_FIFO[FIFO_Order]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00106">106</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="af1135730ed5704a0c4d9dbb1bfe8b3f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1135730ed5704a0c4d9dbb1bfe8b3f1">&#9670;&nbsp;</a></span>acc_FIFO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef_Float acc_FIFO[FIFO_Order]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00106">106</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>.</p>
+
+</div>
+</div>
+<a id="a84bce52a8914c46df1943239b5636fe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84bce52a8914c46df1943239b5636fe5">&#9670;&nbsp;</a></span>acc_fil</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef_Float acc_fil</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00106">106</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="aa8edfed2456fd4587a59036be56ba4b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8edfed2456fd4587a59036be56ba4b8">&#9670;&nbsp;</a></span>acc_fil_int</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef acc_fil_int</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00105">105</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="adf9d61c07fff655f0c7ec960145c4f0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf9d61c07fff655f0c7ec960145c4f0a">&#9670;&nbsp;</a></span>acc_off_calc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef acc_off_calc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00109">109</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a7904b6720cf83cb50cf6f6dc7f484b14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7904b6720cf83cb50cf6f6dc7f484b14">&#9670;&nbsp;</a></span>acc_offset</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef acc_offset</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00109">109</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a5b208e1e4a8188da357a8541ea33061a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b208e1e4a8188da357a8541ea33061a">&#9670;&nbsp;</a></span>acc_x_pre</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef_Float acc_x_pre[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00106">106</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a069dbbc6554a885c5dc4533ce7188176"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a069dbbc6554a885c5dc4533ce7188176">&#9670;&nbsp;</a></span>acc_y_pre</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef_Float acc_y_pre[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00106">106</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a756574870017e0a09196c2abf1288d4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a756574870017e0a09196c2abf1288d4e">&#9670;&nbsp;</a></span>ahrs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AHRS_State_TypeDef ahrs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00146">146</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="ahrs_8c_source.html#l00025">ahrs_fusion_ag()</a>, <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a49725d2659c0161681c55e3763942f68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49725d2659c0161681c55e3763942f68">&#9670;&nbsp;</a></span>ch</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ch</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00081">81</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a81616c0bfeffb572f7646210d018cd6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81616c0bfeffb572f7646210d018cd6d">&#9670;&nbsp;</a></span>ch_flag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char ch_flag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00081">81</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="aa8b6f15b372c722be08179e285658d86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8b6f15b372c722be08179e285658d86">&#9670;&nbsp;</a></span>count1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int count1 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00145">145</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a352f103b4480374c5e8ae3e132d4e958"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a352f103b4480374c5e8ae3e132d4e958">&#9670;&nbsp;</a></span>count2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int count2 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00145">145</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="ae298a2716592e95ef6adb1bf10a75bcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae298a2716592e95ef6adb1bf10a75bcc">&#9670;&nbsp;</a></span>euler_ahrs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EulerAngleTypeDef euler_ahrs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00104">104</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="flight__control_8c_source.html#l00056">FlightControlPID()</a>, <a class="el" href="flight__control_8c_source.html#l00154">FlightControlPID_OuterLoop()</a>, <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>, <a class="el" href="flight__control_8c_source.html#l00275">PIDOuterLoopFrameTrans()</a>.</p>
+
+</div>
+</div>
+<a id="a35aece3fe385a011624b3055473aa07d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35aece3fe385a011624b3055473aa07d">&#9670;&nbsp;</a></span>euler_ahrs_offset</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EulerAngleTypeDef euler_ahrs_offset</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00110">110</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a9ce1ff660374d487324a8e956f33db46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ce1ff660374d487324a8e956f33db46">&#9670;&nbsp;</a></span>euler_rc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EulerAngleTypeDef euler_rc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00104">104</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="flight__control_8c_source.html#l00056">FlightControlPID()</a>, <a class="el" href="flight__control_8c_source.html#l00154">FlightControlPID_OuterLoop()</a>, <a class="el" href="rc_8c_source.html#l00214">GetTargetEulerAngle()</a>, <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="ae4a1eb011f37574e93723486901aeb8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4a1eb011f37574e93723486901aeb8a">&#9670;&nbsp;</a></span>euler_rc_fil</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EulerAngleTypeDef euler_rc_fil</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00104">104</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a531c2103eb9734fc90d534f8fb00d9e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a531c2103eb9734fc90d534f8fb00d9e4">&#9670;&nbsp;</a></span>euler_rc_x_pre</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EulerAngleTypeDef euler_rc_x_pre[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00104">104</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a20aa057cc8a0c7de9d7ed5ed3b9041eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20aa057cc8a0c7de9d7ed5ed3b9041eb">&#9670;&nbsp;</a></span>euler_rc_y_pre</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">EulerAngleTypeDef euler_rc_y_pre[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00104">104</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a781ab7294550d3f3258639561b4a0633"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a781ab7294550d3f3258639561b4a0633">&#9670;&nbsp;</a></span>Fly</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="main__davide__debug_8c.html#struct_attitude___degree">Attitude_Degree</a> Fly</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00142">142</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a1a7dbfd1e93ade4067f023b65aa7ffc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a7dbfd1e93ade4067f023b65aa7ffc0">&#9670;&nbsp;</a></span>Fly_offset</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="main__davide__debug_8c.html#struct_attitude___degree">Attitude_Degree</a> Fly_offset</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00142">142</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a7e658ff79022246f801693c1d2bfc8f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e658ff79022246f801693c1d2bfc8f6">&#9670;&nbsp;</a></span>Fly_origin</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="main__davide__debug_8c.html#struct_attitude___degree">Attitude_Degree</a> Fly_origin</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00142">142</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a65031c5440411cde77372c162d3ce711"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65031c5440411cde77372c162d3ce711">&#9670;&nbsp;</a></span>fly_ready</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t fly_ready = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00080">80</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a823fa91fd4110a5b209aaa07d1e060d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a823fa91fd4110a5b209aaa07d1e060d6">&#9670;&nbsp;</a></span>gAIL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t gAIL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00073">73</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="af7ffd36bd54413bdb7492a73dacf38aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7ffd36bd54413bdb7492a73dacf38aa">&#9670;&nbsp;</a></span>gELE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t gELE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00073">73</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a0b860f05881b703a4539e1d484897ca6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b860f05881b703a4539e1d484897ca6">&#9670;&nbsp;</a></span>gRUD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t gRUD</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00073">73</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a14fb4aca45a8806b269e5e6fb8b1221a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14fb4aca45a8806b269e5e6fb8b1221a">&#9670;&nbsp;</a></span>gTHR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t gTHR</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00073">73</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a90f64a8557e0422c95cecf80d44d0562"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90f64a8557e0422c95cecf80d44d0562">&#9670;&nbsp;</a></span>gyro</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef gyro</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00105">105</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="ahrs_8c_source.html#l00025">ahrs_fusion_ag()</a>, <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="sensor__data_8c_source.html#l00065">ReadSensorRawData()</a>.</p>
+
+</div>
+</div>
+<a id="adab0466a1bf34f199b01061a09aee0ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adab0466a1bf34f199b01061a09aee0ae">&#9670;&nbsp;</a></span>gyro_ahrs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef_Float gyro_ahrs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00107">107</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a728cf89a291ddcae12f107ae9dd04a21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a728cf89a291ddcae12f107ae9dd04a21">&#9670;&nbsp;</a></span>gyro_ahrs_FIFO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef_Float gyro_ahrs_FIFO[FIFO_Order]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00107">107</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="af9bc846516dfb462d4fbf7e7d88102c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9bc846516dfb462d4fbf7e7d88102c3">&#9670;&nbsp;</a></span>gyro_cali_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int gyro_cali_count = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00112">112</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a5903550b472795f9fe4f5e1d69b99b26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5903550b472795f9fe4f5e1d69b99b26">&#9670;&nbsp;</a></span>gyro_cali_degree</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Gyro_Rad gyro_cali_degree</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00143">143</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ae22851f97ec70c2ede1114af4f4c7d6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae22851f97ec70c2ede1114af4f4c7d6c">&#9670;&nbsp;</a></span>gyro_degree</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Gyro_Rad gyro_degree</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00143">143</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="af145f094139a6e8dd32defcbf2e42660"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af145f094139a6e8dd32defcbf2e42660">&#9670;&nbsp;</a></span>gyro_FIFO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef_Float gyro_FIFO[FIFO_Order]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00107">107</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>.</p>
+
+</div>
+</div>
+<a id="a822b65540a9e4df383f1a541596f2560"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a822b65540a9e4df383f1a541596f2560">&#9670;&nbsp;</a></span>gyro_fil</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef_Float gyro_fil</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00107">107</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a4b4fe83fb2284a81e63e0de86e8b9673"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b4fe83fb2284a81e63e0de86e8b9673">&#9670;&nbsp;</a></span>gyro_fil_coeff</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="main__davide__debug_8c.html#struct_i_i_r___coeff">IIR_Coeff</a> gyro_fil_coeff = {0.94280904158206336, -0.33333333333333343, 0.09763107293781749 , 0.19526214587563498 , 0.09763107293781749 }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00140">140</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>.</p>
+
+</div>
+</div>
+<a id="a46ec814c0566c56d8d2bd4ff156a7494"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46ec814c0566c56d8d2bd4ff156a7494">&#9670;&nbsp;</a></span>gyro_fil_int</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef gyro_fil_int</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00105">105</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="aef200aba645f9807b7fa1614afaf1921"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef200aba645f9807b7fa1614afaf1921">&#9670;&nbsp;</a></span>gyro_off_calc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef gyro_off_calc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00109">109</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a5e0965abfe7e990ec63fe6ece09110bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e0965abfe7e990ec63fe6ece09110bb">&#9670;&nbsp;</a></span>gyro_offset</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef gyro_offset</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00109">109</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a992e23e756d58d57427595e7ed2a127f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a992e23e756d58d57427595e7ed2a127f">&#9670;&nbsp;</a></span>gyro_rad</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Gyro_Rad gyro_rad</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00143">143</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="flight__control_8c_source.html#l00056">FlightControlPID()</a>, <a class="el" href="flight__control_8c_source.html#l00193">FlightControlPID_innerLoop()</a>, <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>.</p>
+
+</div>
+</div>
+<a id="a64dba1855c041525ca888bf5ca4eb295"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64dba1855c041525ca888bf5ca4eb295">&#9670;&nbsp;</a></span>gyro_x_pre</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef_Float gyro_x_pre[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00107">107</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a27d5365eff4b083d03661410e2dcbb77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27d5365eff4b083d03661410e2dcbb77">&#9670;&nbsp;</a></span>gyro_y_pre</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef_Float gyro_y_pre[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00107">107</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a22b804736f5648d52f639b2647d4ed13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22b804736f5648d52f639b2647d4ed13">&#9670;&nbsp;</a></span>hadc1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ADC_HandleTypeDef hadc1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>File Name : <a class="el" href="main_8c.html">main.c</a> Description : Main program body</p>
+<p>COPYRIGHT(c) 2017 STMicroelectronics</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p><ol type="1">
+<li>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+<li>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</li>
+<li>Neither the name of STMicroelectronics nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
+</ol>
+<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. </p>
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00056">56</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00511">MX_ADC1_Init()</a>.</p>
+
+</div>
+</div>
+<a id="a9c6222bae4d0328dd843ae099623b40b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c6222bae4d0328dd843ae099623b40b">&#9670;&nbsp;</a></span>hspi1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SPI_HandleTypeDef hspi1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00058">58</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00541">MX_SPI1_Init()</a>.</p>
+
+</div>
+</div>
+<a id="ab9da65f935e805137e2eb4e18c5ab224"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9da65f935e805137e2eb4e18c5ab224">&#9670;&nbsp;</a></span>hspi2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SPI_HandleTypeDef hspi2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00059">59</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00561">MX_SPI2_Init()</a>.</p>
+
+</div>
+</div>
+<a id="a2c80fd5510e2990a59a5c90d745c716c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c80fd5510e2990a59a5c90d745c716c">&#9670;&nbsp;</a></span>htim2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TIM_HandleTypeDef htim2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00061">61</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>, <a class="el" href="main_8c_source.html#l00581">MX_TIM2_Init()</a>.</p>
+
+</div>
+</div>
+<a id="a85788cec5a97ee377e4ee2e74f026484"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85788cec5a97ee377e4ee2e74f026484">&#9670;&nbsp;</a></span>htim4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TIM_HandleTypeDef htim4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00062">62</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>, <a class="el" href="main_8c_source.html#l00619">MX_TIM4_Init()</a>.</p>
+
+</div>
+</div>
+<a id="a31f6f787777409af5ed0d131b52b7988"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31f6f787777409af5ed0d131b52b7988">&#9670;&nbsp;</a></span>htim9</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TIM_HandleTypeDef htim9</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00063">63</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>, <a class="el" href="main_8c_source.html#l00665">MX_TIM9_Init()</a>.</p>
+
+</div>
+</div>
+<a id="a2cf715bef37f7e8ef385a30974a5f0d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cf715bef37f7e8ef385a30974a5f0d5">&#9670;&nbsp;</a></span>huart1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UART_HandleTypeDef huart1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00065">65</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00683">MX_USART1_UART_Init()</a>.</p>
+
+</div>
+</div>
+<a id="a5c5ab1b17afdff44423576ae89eaf638"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c5ab1b17afdff44423576ae89eaf638">&#9670;&nbsp;</a></span>LIS2MDL_M_0_handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* LIS2MDL_M_0_handle = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00069">69</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00947">enableAllSensors()</a>, <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00911">initializeAllSensors()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a3968204e1de5ac9aa25e177bca02cd90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3968204e1de5ac9aa25e177bca02cd90">&#9670;&nbsp;</a></span>LPS22HB_P_0_handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* LPS22HB_P_0_handle = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00070">70</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00947">enableAllSensors()</a>, <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00911">initializeAllSensors()</a>.</p>
+
+</div>
+</div>
+<a id="a2bba0a45cc42203b74bbca0d42a6dd42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bba0a45cc42203b74bbca0d42a6dd42">&#9670;&nbsp;</a></span>LSM6DSL_G_0_handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* LSM6DSL_G_0_handle = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00068">68</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00947">enableAllSensors()</a>, <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00911">initializeAllSensors()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="af52622d0e8c04fa5b2d8e74a0006fe06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af52622d0e8c04fa5b2d8e74a0006fe06">&#9670;&nbsp;</a></span>LSM6DSL_X_0_handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* LSM6DSL_X_0_handle = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00067">67</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00947">enableAllSensors()</a>, <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00911">initializeAllSensors()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="ada06cccdb7b682d9f2b8a756cdf07a65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada06cccdb7b682d9f2b8a756cdf07a65">&#9670;&nbsp;</a></span>mag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef mag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00105">105</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="sensor__data_8c_source.html#l00065">ReadSensorRawData()</a>.</p>
+
+</div>
+</div>
+<a id="ad4de662772f9c55bc309642afb2999e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4de662772f9c55bc309642afb2999e6">&#9670;&nbsp;</a></span>mag_fil</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef_Float mag_fil</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00108">108</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="aa395aedae7b3f685e92a3b24f5de610f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa395aedae7b3f685e92a3b24f5de610f">&#9670;&nbsp;</a></span>mag_fil_int</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AxesRaw_TypeDef mag_fil_int</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00105">105</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a3b1933e10934d45eb1c11eaa867a21b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b1933e10934d45eb1c11eaa867a21b8">&#9670;&nbsp;</a></span>motor_pwm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MotorControlTypeDef motor_pwm</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00144">144</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="flight__control_8c_source.html#l00056">FlightControlPID()</a>, <a class="el" href="flight__control_8c_source.html#l00193">FlightControlPID_innerLoop()</a>, <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>, <a class="el" href="motor_8c_source.html#l00017">set_motor_pwm()</a>, <a class="el" href="motor_8c_source.html#l00049">set_motor_pwm_zero()</a>.</p>
+
+</div>
+</div>
+<a id="a18a763208e1dd32b900e92dc90257fa5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18a763208e1dd32b900e92dc90257fa5">&#9670;&nbsp;</a></span>pid</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">P_PI_PIDControlTypeDef pid</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00103">103</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="flight__control_8c_source.html#l00056">FlightControlPID()</a>, <a class="el" href="flight__control_8c_source.html#l00193">FlightControlPID_innerLoop()</a>, <a class="el" href="flight__control_8c_source.html#l00154">FlightControlPID_OuterLoop()</a>, <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>, <a class="el" href="flight__control_8c_source.html#l00021">PIDControlInit()</a>, <a class="el" href="flight__control_8c_source.html#l00275">PIDOuterLoopFrameTrans()</a>.</p>
+
+</div>
+</div>
+<a id="a3ecfa8a7ade2a7b2f7f847e7e22d1036"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ecfa8a7ade2a7b2f7f847e7e22d1036">&#9670;&nbsp;</a></span>pre</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float pre</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00147">147</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="sensor__data_8c_source.html#l00065">ReadSensorRawData()</a>.</p>
+
+</div>
+</div>
+<a id="a38a12dfb244fc51e6f60a5fcb6cdd2f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38a12dfb244fc51e6f60a5fcb6cdd2f6">&#9670;&nbsp;</a></span>que</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Queue_TypeDef que</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00077">77</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a7b445800a5c3e4d3ae35a84de29205fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b445800a5c3e4d3ae35a84de29205fa">&#9670;&nbsp;</a></span>rc_cal_cnt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t rc_cal_cnt = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00079">79</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>.</p>
+
+</div>
+</div>
+<a id="a053712c200ec719a06c97f6a03442ed0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a053712c200ec719a06c97f6a03442ed0">&#9670;&nbsp;</a></span>rc_cal_flag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t rc_cal_flag = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00077">77</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>.</p>
+
+</div>
+</div>
+<a id="aae72c7b83fb8cb182cc5a640b38e8dd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae72c7b83fb8cb182cc5a640b38e8dd6">&#9670;&nbsp;</a></span>rc_connection_flag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char rc_connection_flag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="rc_8c_source.html">rc.c</a> の <a class="el" href="rc_8c_source.html#l00068">68</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="ac129fa658b66228d06bb8f832c0f920e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac129fa658b66228d06bb8f832c0f920e">&#9670;&nbsp;</a></span>rc_enable_motor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t rc_enable_motor = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00078">78</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a034490ddb6b4aa42a6683873cf6202ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a034490ddb6b4aa42a6683873cf6202ee">&#9670;&nbsp;</a></span>sensor_init_cali</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sensor_init_cali = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00111">111</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>.</p>
+
+</div>
+</div>
+<a id="a600b36ac0e45eda1512161035b926d54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a600b36ac0e45eda1512161035b926d54">&#9670;&nbsp;</a></span>sensor_init_cali_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sensor_init_cali_count = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00111">111</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>.</p>
+
+</div>
+</div>
+<a id="aa2aab32b637b8d5a2c2fed9fb41d4cf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2aab32b637b8d5a2c2fed9fb41d4cf4">&#9670;&nbsp;</a></span>tim</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile tUserTimer tim</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="timer_8c_source.html">timer.c</a> の <a class="el" href="timer_8c_source.html#l00005">5</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="a041ecf6f95ae0110f062329b99fa5b23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a041ecf6f95ae0110f062329b99fa5b23">&#9670;&nbsp;</a></span>tim9_cnt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t tim9_cnt = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00083">83</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>.</p>
+
+</div>
+</div>
+<a id="a00d47209cda511315c482e5b0d408bc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00d47209cda511315c482e5b0d408bc5">&#9670;&nbsp;</a></span>tim9_cnt2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t tim9_cnt2 = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00083">83</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>.</p>
+
+</div>
+</div>
+<a id="ad23a5932c2dbb042bc713d00e89f3083"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad23a5932c2dbb042bc713d00e89f3083">&#9670;&nbsp;</a></span>tim9_event_flag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t tim9_event_flag = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00083">83</a> 行目に定義があります。</p>
+
+<p class="reference">参照元 <a class="el" href="main_8c_source.html#l00731">HAL_TIM_PeriodElapsedCallback()</a>, <a class="el" href="main_8c_source.html#l00158">main()</a>.</p>
+
+</div>
+</div>
+<a id="afb42f66eb48f47f74bad9cee14fcab32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb42f66eb48f47f74bad9cee14fcab32">&#9670;&nbsp;</a></span>tmp_euler_z</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float tmp_euler_z = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00084">84</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a38a5fe20cecb7c19497aa7434b5bfd14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38a5fe20cecb7c19497aa7434b5bfd14">&#9670;&nbsp;</a></span>tmp_lis2mdl</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t tmp_lis2mdl</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00152">152</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a0ecc033d744af53a60edb9395b81a506"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ecc033d744af53a60edb9395b81a506">&#9670;&nbsp;</a></span>tmp_mag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SensorAxes_t tmp_mag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00153">153</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="abf58c4ea1cc64b2a020319e64031c008"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf58c4ea1cc64b2a020319e64031c008">&#9670;&nbsp;</a></span>VBAT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float VBAT = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00150">150</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a3cd3305fd6017834e5ec70f0f581a2a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cd3305fd6017834e5ec70f0f581a2a0">&#9670;&nbsp;</a></span>VBAT_Sense</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t VBAT_Sense</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="main_8c_source.html">main.c</a> の <a class="el" href="main_8c_source.html#l00149">149</a> 行目に定義があります。</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_513367233d9dcf25dec1a3db279dfd4f.html">ST_Drone_FCU_F401</a></li><li class="navelem"><a class="el" href="dir_2ffaa647a837f03b1b3bf520c0797156.html">STM32 FW Project</a></li><li class="navelem"><a class="el" href="dir_b685d42d1dec87e165ba17d7586fb514.html">Official latest release 221117</a></li><li class="navelem"><a class="el" href="dir_a08362fbf68805941da87b596fa9668a.html">Src</a></li><li class="navelem"><a class="el" href="main_8c.html">main.c</a></li>
+    <li class="footer">2018年12月21日(金) 08時52分30秒作成 - STmicroCopter_20181010 / 構成: 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.14 </li>
+  </ul>
+</div>
+</body>
+</html>

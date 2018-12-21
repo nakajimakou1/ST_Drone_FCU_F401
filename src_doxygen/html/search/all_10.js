@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['sensor_5fdata_2ec',['sensor_data.c',['../sensor__data_8c.html',1,'']]],
+  ['sensor_5finit_5fcali',['sensor_init_cali',['../main_8c.html#a034490ddb6b4aa42a6683873cf6202ee',1,'sensor_init_cali():&#160;main.c'],['../main__davide__debug_8c.html#a034490ddb6b4aa42a6683873cf6202ee',1,'sensor_init_cali():&#160;main_davide_debug.c']]],
+  ['sensor_5finit_5fcali_5fcount',['sensor_init_cali_count',['../main_8c.html#a600b36ac0e45eda1512161035b926d54',1,'sensor_init_cali_count():&#160;main.c'],['../main__davide__debug_8c.html#a600b36ac0e45eda1512161035b926d54',1,'sensor_init_cali_count():&#160;main_davide_debug.c']]],
+  ['set_5fmotor_5fpwm',['set_motor_pwm',['../motor_8c.html#a85dda736d88f448a1ceefddeeb5bc344',1,'motor.c']]],
+  ['set_5fmotor_5fpwm_5fzero',['set_motor_pwm_zero',['../motor_8c.html#a87d3b28dfb596c0bc0864eeed9e55250',1,'motor.c']]],
+  ['setuptimer',['SetupTimer',['../timer_8c.html#a7fb5d06b4ab992c65fcbb0d00aacceef',1,'timer.c']]],
+  ['spi1_5firqhandler',['SPI1_IRQHandler',['../stm32f4xx__it_8c.html#a9bbd8c17ce4f49adcca47d11f482aab6',1,'stm32f4xx_it.c']]],
+  ['spi2_5firqhandler',['SPI2_IRQHandler',['../stm32f4xx__it_8c.html#a68d8880cd80cb17a2501487c3d649ea1',1,'stm32f4xx_it.c']]],
+  ['sqrt',['Sqrt',['../basic__math_8c.html#a514ba70430558b3be1f14d8efcb63c12',1,'basic_math.c']]],
+  ['starttimer',['StartTimer',['../timer_8c.html#aa6ff50c160cefabef39c4d64d289fadb',1,'timer.c']]],
+  ['stm32_5fusb_5fotg_5fdevice_5flibrary',['STM32_USB_OTG_DEVICE_LIBRARY',['../group___s_t_m32___u_s_b___o_t_g___d_e_v_i_c_e___l_i_b_r_a_r_y.html',1,'']]],
+  ['stm32f4xx_5fhal_5fmsp_2ec',['stm32f4xx_hal_msp.c',['../stm32f4xx__hal__msp_8c.html',1,'']]],
+  ['stm32f4xx_5fit_2ec',['stm32f4xx_it.c',['../stm32f4xx__it_8c.html',1,'']]],
+  ['stm32f4xx_5fnucleo',['STM32F4XX_NUCLEO',['../group___s_t_m32_f4_x_x___n_u_c_l_e_o.html',1,'']]],
+  ['stm32f4xx_5fnucleo_2ec',['stm32f4xx_nucleo.c',['../stm32f4xx__nucleo_8c.html',1,'']]],
+  ['stm32f4xx_5fnucleo_5flow_5flevel',['STM32F4XX_NUCLEO_LOW_LEVEL',['../group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l.html',1,'']]],
+  ['stm32f4xx_5fnucleo_5flow_5flevel_5fprivate_5fdefines',['STM32F4XX_NUCLEO_LOW_LEVEL_Private_Defines',['../group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___private___defines.html',1,'']]],
+  ['stm32f4xx_5fnucleo_5flow_5flevel_5fprivate_5ffunctionprototypes',['STM32F4XX_NUCLEO_LOW_LEVEL_Private_FunctionPrototypes',['../group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___private___function_prototypes.html',1,'']]],
+  ['stm32f4xx_5fnucleo_5flow_5flevel_5fprivate_5ffunctions',['STM32F4XX_NUCLEO_LOW_LEVEL_Private_Functions',['../group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___private___functions.html',1,'']]],
+  ['stm32f4xx_5fnucleo_5flow_5flevel_5fprivate_5fmacros',['STM32F4XX_NUCLEO_LOW_LEVEL_Private_Macros',['../group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___private___macros.html',1,'']]],
+  ['stm32f4xx_5fnucleo_5flow_5flevel_5fprivate_5ftypesdefinitions',['STM32F4XX_NUCLEO_LOW_LEVEL_Private_TypesDefinitions',['../group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___private___types_definitions.html',1,'']]],
+  ['stm32f4xx_5fnucleo_5flow_5flevel_5fprivate_5fvariables',['STM32F4XX_NUCLEO_LOW_LEVEL_Private_Variables',['../group___s_t_m32_f4_x_x___n_u_c_l_e_o___l_o_w___l_e_v_e_l___private___variables.html',1,'']]],
+  ['stoptimer',['StopTimer',['../timer_8c.html#af8d13d61ecb04b7cdc9ad917bd766a6c',1,'timer.c']]],
+  ['systemclock_5fconfig',['SystemClock_Config',['../main_8c.html#a70af21c671abfcc773614a9a4f63d920',1,'SystemClock_Config(void):&#160;main.c'],['../main__davide__debug_8c.html#a70af21c671abfcc773614a9a4f63d920',1,'SystemClock_Config(void):&#160;main_davide_debug.c'],['../usbd__conf_8c.html#a70af21c671abfcc773614a9a4f63d920',1,'SystemClock_Config(void):&#160;main.c']]],
+  ['systick_5fhandler',['SysTick_Handler',['../stm32f4xx__it_8c.html#ab5e09814056d617c521549e542639b7e',1,'stm32f4xx_it.c']]]
+];
